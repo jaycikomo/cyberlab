@@ -1,0 +1,13 @@
+# Logs
+logs/*.log
+
+# Backups temporaires  
+backups/auto/*
+backups/manual/*
+
+# Secrets
+config/secrets/*
+
+# Fichiers temporaires
+*.tmp
+*.swp

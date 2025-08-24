@@ -1,0 +1,243 @@
+# =============================================================================
+# 🛡️ CYBERLAB v1.0.0 "GENESIS" - LABORATOIRE CYBERSÉCURITÉ COMPLET
+# =============================================================================
+
+networks:
+  cyberlab_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.35.0.0/24
+          gateway: 172.35.0.1
+
+volumes:
+  elasticsearch_data:
+  grafana_data:
+  portainer_data:
+  mysql_data:
+  wazuh_data:
+
+services:
+  # 🌐 DASHBOARD PRINCIPAL
+  dashboard:
+    build: 
+      context: ./services/dashboard
+      dockerfile: Dockerfile
+    container_name: cyberlab_dashboard
+    hostname: dashboard
+    ports:
+      - "${DASHBOARD_PORT}:80"
+    volumes:
+      - ./services/dashboard/web:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.20
+    environment:
+      - CYBERLAB_VERSION=${CYBERLAB_VERSION}
+      - CYBERLAB_NETWORK=${CYBERLAB_NETWORK}
+    restart: unless-stopped
+
+  # 🛠️ PORTAINER
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: cyberlab_portainer
+    hostname: portainer
+    ports:
+      - "${PORTAINER_PORT}:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.2
+    restart: unless-stopped
+
+  # 💾 PHPMYADMIN
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: cyberlab_phpmyadmin
+    hostname: phpmyadmin
+    ports:
+      - "${PHPMYADMIN_PORT}:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.31
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
+  # 📊 ELASTICSEARCH
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: cyberlab_elasticsearch
+    hostname: elasticsearch
+    ports:
+      - "${ELASTICSEARCH_PORT}:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.5
+    restart: unless-stopped
+
+  # 📈 KIBANA
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: cyberlab_kibana
+    hostname: kibana
+    ports:
+      - "${KIBANA_PORT}:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - xpack.security.enabled=false
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.6
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+
+  # 📊 GRAFANA
+  grafana:
+    image: grafana/grafana:latest
+    container_name: cyberlab_grafana
+    hostname: grafana
+    ports:
+      - "${GRAFANA_PORT}:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.7
+    restart: unless-stopped
+
+  # 🛡️ WAZUH MANAGER
+  wazuh_manager:
+    image: wazuh/wazuh-manager:4.7.0
+    container_name: cyberlab_wazuh_manager
+    hostname: wazuh-manager
+    ports:
+      - "${WAZUH_MANAGER_PORT}:55000"
+      - "1514:1514"
+      - "1515:1515"
+    environment:
+      - WAZUH_MANAGER_ADMIN_USER=admin
+      - WAZUH_MANAGER_ADMIN_PASSWORD=${WAZUH_PASSWORD}
+    volumes:
+      - wazuh_data:/var/ossec/data
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.60
+    restart: unless-stopped
+
+  # 🛡️ WAZUH DASHBOARD
+  wazuh_dashboard:
+    image: wazuh/wazuh-dashboard:4.7.0
+    container_name: cyberlab_wazuh_dashboard
+    hostname: wazuh-dashboard
+    ports:
+      - "${WAZUH_DASHBOARD_PORT}:5601"
+    environment:
+      - WAZUH_API_URL=https://wazuh_manager:55000
+      - DASHBOARD_USERNAME=admin
+      - DASHBOARD_PASSWORD=${WAZUH_PASSWORD}
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.61
+    depends_on:
+      - wazuh_manager
+    restart: unless-stopped
+
+  # 🎯 DVWA
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: cyberlab_dvwa
+    hostname: dvwa
+    ports:
+      - "${DVWA_PORT}:80"
+    environment:
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=password
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.80
+    restart: unless-stopped
+
+  # 🐐 WEBGOAT
+  webgoat:
+    image: webgoat/webgoat-8.0:latest
+    container_name: cyberlab_webgoat
+    hostname: webgoat
+    ports:
+      - "${WEBGOAT_PORT}:8080"
+      - "9090:9090"
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.81
+    restart: unless-stopped
+
+  # 🧃 JUICE SHOP
+  juice_shop:
+    image: bkimminich/juice-shop:latest
+    container_name: cyberlab_juice_shop
+    hostname: juice-shop
+    ports:
+      - "${JUICE_SHOP_PORT}:3000"
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.82
+    restart: unless-stopped
+
+  # 🗄️ MYSQL DATABASE
+  mysql:
+    image: mysql:8.0
+    container_name: cyberlab_mysql
+    hostname: mysql-db
+    ports:
+      - "${MYSQL_PORT}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=cyberlab_db
+      - MYSQL_USER=webapp
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./services/database/init:/docker-entrypoint-initdb.d
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.30
+    restart: unless-stopped
+
+  # 🐧 KALI ATTACKER
+  kali:
+    build:
+      context: ./services/kali
+      dockerfile: Dockerfile
+    container_name: cyberlab_kali_attacker
+    hostname: kali-attacker
+    ports:
+      - "2222:22"
+    environment:
+      - DISPLAY=:0
+    volumes:
+      - ./../../tools:/root/tools
+    networks:
+      cyberlab_network:
+        ipv4_address: 172.35.0.100
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
