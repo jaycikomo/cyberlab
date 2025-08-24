@@ -39,7 +39,4 @@
 - ✅ phpMyAdmin - Port 8090
 
 ## 🎉 MISSION ACCOMPLIE
-Le CyberLab v1.0.0 Genesis est **100% fonctionnel et portable** !
-
----
-*Dernière mise à jour: 24/08/2024 23:50*
+Le CyberLab v1.0.
