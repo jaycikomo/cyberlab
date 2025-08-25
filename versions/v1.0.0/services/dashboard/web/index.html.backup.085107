@@ -509,24 +509,5 @@
         // Initialisation au chargement
         document.addEventListener('DOMContentLoaded', initializeDashboard);
     </script>
-
-<!-- Bouton Guide d'Exploration -->
-<div style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
-    <a href="exploration_guide.html" target="_blank" 
-       style="background: linear-gradient(45deg, #ff6b35, #f7931e); 
-              color: white; 
-              padding: 15px 25px; 
-              border-radius: 50px; 
-              text-decoration: none; 
-              font-weight: bold; 
-              box-shadow: 0 5px 15px rgba(255,107,53,0.4); 
-              display: flex; 
-              align-items: center; 
-              transition: all 0.3s ease;" 
-       onmouseover="this.style.transform='translateY(-3px)';" 
-       onmouseout="this.style.transform='translateY(0px)';">
-        🎓 Guide d'Exploration Interactif
-    </a>
-</div>
 </body>
 </html>

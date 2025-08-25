@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 CyberLab v1.0.0 - Guide d'Exploration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff; min-height: 100vh; padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { 
+            text-align: center; padding: 30px; 
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,100,255,0.1));
+            border-radius: 20px; margin-bottom: 30px; border: 2px solid rgba(0,255,136,0.2);
+        }
+        .header h1 { font-size: 2.5em; color: #00ff88; margin-bottom: 10px; text-shadow: 0 0 20px rgba(0,255,136,0.5); }
+        .progress-bar { width: 100%; height: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #00ff88, #0066ff); width: 8%; transition: width 0.5s ease; }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border-radius: 15px; padding: 25px; margin: 20px 0;
+            border: 2px solid transparent; transition: all 0.3s ease;
+        }
+        .service-card.current { border-color: #ffaa00; box-shadow: 0 0 20px rgba(255,170,0,0.3); }
+        .service-card.locked { opacity: 0.6; }
+        
+        .service-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .service-title { font-size: 1.5em; color: #00ff88; font-weight: bold; }
+        .service-subtitle { color: #cccccc; font-size: 0.9em; }
+        
+        .status-badge { padding: 8px 16px; border-radius: 20px; font-size: 0.9em; font-weight: bold; }
+        .status-current { background: #ffaa00; color: #1a1a2e; }
+        .status-locked { background: #666666; color: #cccccc; }
+        
+        .objectives { background: rgba(0,100,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #0066ff; }
+        .checklist-item { padding: 10px 0; display: flex; align-items: center; }
+        .checkbox { 
+            width: 20px; height: 20px; border: 2px solid #666; border-radius: 4px;
+            margin-right: 12px; cursor: pointer; transition: all 0.3s ease; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .checkbox.checked { background: #00ff88; border-color: #00ff88; }
+        .checkbox.checked::after { content: "✓"; color: #1a1a2e; font-weight: bold; }
+        
+        .btn { 
+            padding: 12px 25px; border: none; border-radius: 25px; cursor: pointer;
+            text-decoration: none; font-weight: bold; margin: 8px 5px; display: inline-block;
+            transition: all 0.3s ease; text-align: center;
+        }
+        .btn-primary { background: linear-gradient(45deg, #00ff88, #00cc6a); color: #1a1a2e; }
+        .btn-primary:hover { background: linear-gradient(45deg, #00cc6a, #00aa55); transform: translateY(-2px); }
+        .btn-secondary { background: linear-gradient(45deg, #0066ff, #0052cc); color: white; }
+        .btn-test { background: linear-gradient(45deg, #ffaa00, #cc8800); color: #1a1a2e; }
+        
+        .command-box { 
+            background: #1e1e1e; padding: 15px; border-radius: 8px; margin: 15px 0;
+            font-family: 'Courier New', monospace; border: 1px solid #333;
+        }
+        .command { color: #00ff88; margin-bottom: 8px; }
+        .output { color: #cccccc; }
+        
+        .tips-box { 
+            background: linear-gradient(135deg, rgba(255,170,0,0.1), rgba(255,170,0,0.05));
+            border-left: 4px solid #ffaa00; padding: 15px; border-radius: 0 10px 10px 0; margin: 20px 0;
+        }
+        .tips-box h4 { color: #ffaa00; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 CyberLab v1.0.0 Genesis</h1>
+            <p>Guide d'Exploration Interactif - Approche Progressive</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">Étape 1/12 - Commencez par le Dashboard Principal</p>
+        </div>
+
+        <!-- Service 1: Dashboard Principal -->
+        <div class="service-card current">
+            <div class="service-header">
+                <div>
+                    <div class="service-title">🏠 Étape 1 : Dashboard Principal</div>
+                    <div class="service-subtitle">Point d'entrée et centre de contrôle</div>
+                </div>
+                <div class="status-badge status-current">ACTUEL</div>
+            </div>
+            
+            <div class="objectives">
+                <h4>🎯 Objectifs d'apprentissage :</h4>
+                <div class="checklist-item">
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Identifier le nombre total de services (réponse : 12)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Compter les services "accessibles" (réponse : 11/12)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Tester l'interface de gestion JavaScript</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Noter les ports principaux (8080, 9000, 8090, etc.)</span>
+                </div>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Concept Clé</h4>
+                <p>Le dashboard est votre "centre de commandement" - il centralise l'accès à tous les outils du laboratoire et fournit une vue d'ensemble de l'état des services.</p>
+            </div>
+            
+            <div class="command-box">
+                <div class="command">$ curl -I http://127.0.0.1:8080</div>
+                <div class="output">HTTP/1.1 200 OK - Service actif ✅</div>
+            </div>
+            
+            <div>
+                <a href="http://127.0.0.1:8080" target="_blank" class="btn btn-primary">🚀 Retour Dashboard</a>
+                <button class="btn btn-test" onclick="testService(8080)">🧪 Tester</button>
+            </div>
+        </div>
+
+        <!-- Service 2: Portainer -->
+        <div class="service-card locked">
+            <div class="service-header">
+                <div>
+                    <div class="service-title">🐳 Étape 2 : Portainer (Docker Management)</div>
+                    <div class="service-subtitle">Interface graphique pour Docker</div>
+                </div>
+                <div class="status-badge status-locked">SUIVANT</div>
+            </div>
+            
+            <div class="objectives">
+                <h4>🎯 Prochains objectifs :</h4>
+                <p>• Comprendre Docker et la conteneurisation<br>
+                • Explorer l'architecture des 12 services CyberLab<br>
+                • Analyser le réseau v100_cyberlab_network<br>
+                • Gérer les conteneurs via l'interface graphique</p>
+            </div>
+            
+            <div>
+                <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-secondary">🐳 Ouvrir Portainer</a>
+                <button class="btn btn-test" onclick="testService(9000)">🧪 Tester</button>
+            </div>
+        </div>
+
+        <!-- Service 3: Applications Vulnérables -->
+        <div class="service-card locked">
+            <div class="service-header">
+                <div>
+                    <div class="service-title">🎯 Étape 3 : Applications Vulnérables</div>
+                    <div class="service-subtitle">DVWA, WebGoat, Juice Shop</div>
+                </div>
+                <div class="status-badge status-locked">À VENIR</div>
+            </div>
+            
+            <p>🏹 Applications d'entraînement pour tests de pénétration et formation sécurité</p>
+            
+            <div>
+                <a href="http://127.0.0.1:8081" target="_blank" class="btn btn-secondary">🎯 DVWA</a>
+                <a href="http://127.0.0.1:8082/WebGoat" target="_blank" class="btn btn-secondary">🐐 WebGoat</a>
+                <a href="http://127.0.0.1:8083" target="_blank" class="btn btn-secondary">🧃 Juice Shop</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="/" class="btn btn-primary">← Retour Dashboard Principal</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+            
+            // Compter les cases cochées
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const checkedBoxes = document.querySelectorAll('.checkbox.checked');
+            const progress = (checkedBoxes.length / checkboxes.length) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = 
+                `Progression : ${checkedBoxes.length}/${checkboxes.length} objectifs complétés`;
+        }
+
+        function testService(port) {
+            // Simulation de test - dans la vraie vie, ceci ferait un appel AJAX
+            const services = {
+                8080: "Dashboard Principal",
+                9000: "Portainer Docker",
+                8081: "DVWA",
+                8082: "WebGoat",
+                8083: "Juice Shop"
+            };
+            
+            const serviceName = services[port] || "Service";
+            alert(`🧪 Test ${serviceName} (Port ${port})\n✅ Service accessible et fonctionnel !`);
+        }
+
+        // Animation au chargement
+        window.addEventListener('load', () => {
+            console.log('🚀 Guide d\'exploration CyberLab chargé !');
+        });
+    </script>
+</body>
+</html>
