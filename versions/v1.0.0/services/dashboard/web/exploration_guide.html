@@ -494,7 +494,8 @@
         <div class="tabs">
             <button class="tab active" onclick="showTab('overview')">🏠 Vue d'ensemble</button>
             <button class="tab" onclick="window.open('portainer_exploration.html', '_blank')">🐳 Portainer</button>
-            <button class="tab" onclick="showTab('wazuh')">🛡️ Wazuh SIEM</button>
+	    <button class="tab" onclick="window.open('kali_exploration.html', '_blank')">🐧 Kali Linux</button>            
+	    <button class="tab" onclick="showTab('wazuh')">🛡️ Wazuh SIEM</button>
             <button class="tab" onclick="showTab('dvwa')">🎯 DVWA</button>
             <button class="tab" onclick="showTab('webgoat')">🐐 WebGoat</button>
             <button class="tab" onclick="showTab('juiceshop')">🧃 Juice Shop</button>
@@ -524,6 +525,19 @@
                     <div class="service-status">
                         <div class="status-badge status-ready">PRÊT</div>
                         <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-primary">Ouvrir</a>
+                    </div>
+                </div>
+
+                <!-- Kali Linux -->
+                <div class="service-card" onclick="window.open('kali_exploration.html', '_blank')">
+                    <div class="service-header">
+                        <div class="service-icon">🐧</div>
+                        <div class="service-title">Kali Linux</div>
+                    </div>
+                    <div class="service-desc">Distribution Linux spécialisée en tests de pénétration. Plateforme complète avec plus de 600 outils de sécurité préinstallés.</div>
+                    <div class="service-status">
+                        <div class="status-badge status-ready">PRÊT</div>
+                        <a href="ssh://root@127.0.0.1:2222" target="_blank" class="btn btn-primary">SSH</a>
                     </div>
                 </div>
 

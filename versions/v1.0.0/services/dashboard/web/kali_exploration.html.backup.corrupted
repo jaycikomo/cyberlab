@@ -1,0 +1,740 @@
+<div id="games" class="tab-content">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="color: #00ff41; font-size: 2.5rem; margin-bottom: 15px;">🎮 APPRENTISSAGE LUDIQUE</h2>
+                <p style="color: #cccccc; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Apprenez la cybersécurité et les <span style="color: #00ff41; font-weight: bold;">commandes Linux/Bash</span> en vous amusant ! 
+                    Ces serious games vous permettront d'acquérir des compétences essentielles de manière interactive.
+                </p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🐧 Jeux Commandes Linux/Bash</h3>
+                    <p>Apprenez les commandes Linux et Bash de façon ludique avec des jeux interactifs et des missions progressives.</p>
+                    <a href="https://github.com/phyver/GameShell" class="resource-link" target="_blank">
+                        <span>🎯</span> GameShell (40 missions bash)
+                    </a>
+                    <a href="https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html" class="resource-link" target="_blank">
+                        <span>🎮</span> Terminus (Jeu d'aventure CLI)
+                    </a>
+                    <a href="https://cmdchallenge.com/" class="resource-link" target="_blank">
+                        <span>⚡</span> CMD Challenge
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎯 Défis Cybersécurité Français</h3>
+                    <p>Plateformes ludiques françaises pour apprendre la sécurité informatique par le jeu et la mise en situation.</p>
+                    <a href="https://cyber.gouv.fr/actualites/au-college-et-au-lycee-former-a-la-cybersecurite-par-le-jeu" class="resource-link" target="_blank">
+                        <span>🇫🇷</span> CyberEnJeux (ANSSI)
+                    </a>
+                    <a href="https://shirudo.eu/" class="resource-link" target="_blank">
+                        <span>🛡️</span> Shirudo (Serious game FR)
+                    </a>
+                    <a href="https://www.collock.com/project/jeu-sensibilisation-cybersecurite/" class="resource-link" target="_blank">
+                        <span>🎭</span> Collock Escape Game Cyber
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>⚔️ Wargames & CTF Débutant</h3>
+                    <p>Challenges progressifs de sécurité informatique pour découvrir le hacking éthique étape par étape.</p>
+                    <a href="https://overthewire.org/wargames/bandit/" class="resource-link" target="_blank">
+                        <span>🏴</span> Bandit (OverTheWire)
+                    </a>
+                    <a href="https://www.newbiecontest.org/" class="resource-link" target="_blank">
+                        <span>🐣</span> NewbieContest (FR)
+                    </a>
+                    <a href="https://www.root-me.org/" class="resource-link" target="_blank">
+                        <span>🌱</span> Root-Me (Plateforme FR)
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎲 Simulations d'Attaque</h3>
+                    <p>Jeux de simulation réalistes pour comprendre les cyberattaques et apprendre la défense en équipe.</p>
+                    <a href="https://www.pwc.fr/fr/expertises/conseil/cybersecurite/game-of-threats.html" class="resource-link" target="_blank">
+                        <span>👑</span> Game of Threats (PwC)
+                    </a>
+                    <a href="https://www.cyber-wargame.fr/" class="resource-link" target="_blank">
+                        <span>🎖️</span> Cyber Wargame
+                    </a>
+                    <a href="https://www.urbangaming.fr/serious-game/cybersecurite/" class="resource-link" target="_blank">
+                        <span>🏢</span> Urban Gaming Cyber
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🧩 Puzzle & Logique Crypto</h3>
+                    <p>Jeux de réflexion pour découvrir la cryptographie, les algorithmes et la logique informatique.</p>
+                    <a href="https://cryptohack.org/" class="resource-link" target="_blank">
+                        <span>🔐</span> CryptoHack
+                    </a>
+                    <a href="https://mystery.knightlab.com/" class="resource-link" target="_blank">
+                        <span>🕵️</span> Command Line Murder Mystery
+                    </a>
+                    <a href="https://regexcrossword.com/" class="resource-link" target="_blank">
+                        <span>🧩</span> Regex Crossword
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎓 Environnements d'Apprentissage</h3>
+                    <p>Plateformes interactives complètes combinant théorie, pratique et gamification pour un apprentissage structuré.</p>
+                    <a href="https://www.hackthissite.org/" class="resource-link" target="_blank">
+                        <span>🌐</span> Hack This Site
+                    </a>
+                    <a href="https://picoctf.org/" class="resource-link" target="_blank">
+                        <span>🏫</span> PicoCTF (Éducatif)
+                    </a>
+                    <a href="https://www.smashthestack.org/" class="resource-link" target="_blank">
+                        <span>💥</span> Smash The Stack
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(0, 100, 0, 0.2); border-radius: 15px; border: 2px solid rgba(0, 255, 65, 0.3);">
+                <h3 style="color: #00ff41; margin-bottom: 15px;">🎮 Pourquoi Apprendre en Jouant ?</h3>
+                <p style="color: #cccccc; margin-bottom: 20px; line-height: 1.6;">
+                    <strong>Les serious games permettent :</strong><br><br>
+                    ✅ <strong>Apprentissage actif :</strong> Mémorisation par la pratique<br>
+                    ✅ <strong>Motivation renforcée :</strong> Progression visible et récompenses<br>
+                    ✅ <strong>Prise de risque :</strong> Expérimentez sans conséquences réelles<br>
+                    ✅ <strong>Répétition naturelle :</strong> Rejouez jusqu'à la maîtrise<br>
+                    ✅ <strong>Contexte réaliste :</strong> Scénarios proches de la réalité
+                </p>
+                <a href="#prerequisites" onclick="showTab('prerequisites')" class="resource-link" style="background: linear-gradient(45deg, #00ff41, #00cc33); color: #000;">
+                    📚 Vérifier mes prérequis d'abord
+                </a>
+            </div>
+        </div><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐧 Kali Linux - Guide d'Exploration Pentesting | CyberLab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d4420 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .tab {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(0, 255, 65, 0.2);
+            border-bottom: none;
+            color: #b0b0b0;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .tab:hover {
+            background: rgba(0, 255, 65, 0.1);
+            color: #00ff41;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.2), rgba(0, 255, 65, 0.1));
+            border-color: rgba(0, 255, 65, 0.5);
+            color: #00ff41;
+            box-shadow: 0 -5px 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff41, #00cc33, #009926);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(0, 255, 65, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 65, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .resource-card h3 {
+            font-size: 1.4rem;
+            color: #00ff41;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-card p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff41, #00cc33);
+            color: #000000;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 5px 10px 5px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .resource-link:hover {
+            background: linear-gradient(45deg, #00cc33, #009926);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 65, 0.4);
+        }
+
+        .stats {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #00ff41;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            color: #00ff41;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: rgba(0, 255, 65, 0.6);
+            transform: translateY(-2px);
+        }
+
+        @keyframes matrix {
+            0% { transform: translateY(-100px) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) translateX(50px); opacity: 0; }
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            animation: matrix 8s linear infinite;
+        }
+
+        .warning-box {
+            background: rgba(255, 69, 0, 0.1);
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .warning-box h3 {
+            color: #ff4500;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .resource-card {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                margin-right: 0;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                border: 2px solid rgba(0, 255, 65, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg" id="matrixBg"></div>
+    
+    <a href="exploration_guide.html" class="back-button">← Retour au Guide</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">🐧 KALI LINUX EXPLORATION</h1>
+            <p class="subtitle">Votre Arsenal de Pentesting Professionnel</p>
+            <p class="description">
+                Découvrez les <span class="highlight">outils essentiels</span> et les <span class="highlight">méthodologies</span> 
+                pour maîtriser Kali Linux dans vos tests de pénétration. Formation progressive du débutant à l'expert.
+            </p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab" onclick="showTab('prerequisites')">⚠️ Prérequis</div>
+            <div class="tab" onclick="showTab('games')">🎮 Jeux Ludiques</div>
+            <div class="tab active" onclick="showTab('formations')">🎯 Formations</div>
+        </div>
+
+        <div id="formations" class="tab-content active">
+            <div class="stats">
+                <h3 style="color: #00ff41; margin-bottom: 15px;">📊 Arsenal Kali Linux</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">600+</span>
+                        <div class="stat-label">Outils Préinstallés</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <div class="stat-label">Catégories d'Attaque</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label">Ressources Gratuites</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Lab Disponible</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🎓 Formations Kali Gratuites</h3>
+                    <p>Cours complets et certifications gratuites recommandés par la communauté française de cybersécurité.</p>
+                    <a href="https://www.it-connect.fr/cours/debuter-avec-kali-linux/" class="resource-link" target="_blank">
+                        <span>📚</span> IT-Connect Cours Kali
+                    </a>
+                    <a href="https://www.kali-linux.fr/tutoriels" class="resource-link" target="_blank">
+                        <span>🇫🇷</span> Kali-Linux.fr Tutoriels
+                    </a>
+                    <a href="https://www.bestcours.com/systeme-exploitation/linux/636-kali-linux-pdf.html" class="resource-link" target="_blank">
+                        <span>📖</span> Guide PDF Gratuit
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🛠️ Outils de Reconnaissance</h3>
+                    <p>Maîtrisez les outils essentiels de reconnaissance et d'énumération pour vos tests de pénétration.</p>
+                    <a href="https://nmap.org/man/fr/" class="resource-link" target="_blank">
+                        <span>🔍</span> Documentation Nmap Française
+                    </a>
+                    <a href="https://www.it-connect.fr/cours/nmap-cartographie-reseau-scan-de-vulnerabilites/" class="resource-link" target="_blank">
+                        <span>🎓</span> IT-Connect Cours Nmap
+                    </a>
+                    <a href="https://www.varonis.com/fr/blog/nmap-commands" class="resource-link" target="_blank">
+                        <span>📡</span> Guide Commandes Nmap
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>💻 Exploitation Web</h3>
+                    <p>Techniques d'exploitation des applications web avec les outils Kali les plus populaires.</p>
+                    <a href="https://portswigger.net/web-security" class="resource-link" target="_blank">
+                        <span>🕷️</span> PortSwigger Academy
+                    </a>
+                    <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" class="resource-link" target="_blank">
+                        <span>💣</span> Payloads Repository
+                    </a>
+                    <a href="https://owasp.org/www-project-web-security-testing-guide/" class="resource-link" target="_blank">
+                        <span>📖</span> OWASP Testing Guide
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🔐 Cracking & Bruteforce</h3>
+                    <p>Techniques avancées de cassage de mots de passe et d'authentification avec John, Hashcat et Hydra.</p>
+                    <a href="https://hashcat.net/hashcat/" class="resource-link" target="_blank">
+                        <span>⚡</span> Hashcat Documentation
+                    </a>
+                    <a href="https://github.com/vanhauser-thc/thc-hydra" class="resource-link" target="_blank">
+                        <span>💧</span> THC-Hydra GitHub
+                    </a>
+                    <a href="https://www.openwall.com/john/" class="resource-link" target="_blank">
+                        <span>🔨</span> John the Ripper Officiel
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎬 Tutoriels Vidéo Kali</h3>
+                    <p>Chaînes YouTube françaises spécialisées en cybersécurité et tests de pénétration avec Kali Linux.</p>
+                    <a href="https://www.youtube.com/@processusthief" class="resource-link" target="_blank">
+                        <span>🔒</span> Les Tutos de Processus
+                    </a>
+                    <a href="https://www.youtube.com/@wakedxy" class="resource-link" target="_blank">
+                        <span>🎓</span> Waked XY (Cybersécurité FR)
+                    </a>
+                    <a href="https://www.it-connect.fr/cours-tutoriels/securite-informatique/" class="resource-link" target="_blank">
+                        <span>🎥</span> IT-Connect Tutoriels
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>⚡ Labs Pratiques</h3>
+                    <p>Plateformes d'entraînement gratuites pour pratiquer vos techniques de pentesting en toute sécurité.</p>
+                    <a href="https://overthewire.org/wargames/" class="resource-link" target="_blank">
+                        <span>⚔️</span> OverTheWire (100% Gratuit)
+                    </a>
+                    <a href="https://tryhackme.com/" class="resource-link" target="_blank">
+                        <span>🎯</span> TryHackMe (Version gratuite)
+                    </a>
+                    <a href="https://www.hackthebox.com/" class="resource-link" target="_blank">
+                        <span>📦</span> HackTheBox (Version gratuite)
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(0, 0, 0, 0.4); border-radius: 15px; border: 2px solid rgba(0, 255, 65, 0.2);">
+                <h3 style="color: #00ff41; margin-bottom: 15px;">🎯 Prêt à Commencer Votre Formation ?</h3>
+                <p style="color: #cccccc; margin-bottom: 20px; font-size: 1.1rem;">
+                    Accédez à votre environnement Kali Linux pré-configuré dans le CyberLab
+                </p>
+                <a href="http://127.0.0.1:2222" class="resource-link" style="font-size: 1.2rem; padding: 15px 30px;">
+                    🐧 Accéder à Kali Linux (SSH: Port 2222)
+                </a>
+                <div style="margin-top: 20px; color: #b0b0b0; font-size: 0.9rem;">
+                    <p>📝 <strong>Identifiants par défaut :</strong> kali / kali</p>
+                    <p>🔧 <strong>Root :</strong> sudo passwd root (définir mot de passe root)</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="prerequisites" class="tab-content">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="color: #00ff41; font-size: 2.5rem; margin-bottom: 15px;">⚠️ PRÉREQUIS ESSENTIELS</h2>
+                <p style="color: #cccccc; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Avant de plonger dans Kali Linux, assurez-vous de maîtriser les <span style="color: #00ff41; font-weight: bold;">bases Linux et Bash</span>. 
+                    Ces compétences sont indispensables pour exploiter pleinement les outils de pentesting !
+                </p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🐧 Formation Linux Débutant</h3>
+                    <p>Maîtrisez les bases du système Linux avant d'utiliser Kali. Navigation, fichiers, permissions et commandes essentielles.</p>
+                    <a href="https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux" class="resource-link" target="_blank">
+                        <span>📚</span> OpenClassrooms Linux
+                    </a>
+                    <a href="https://linux.developpez.com/cours/" class="resource-link" target="_blank">
+                        <span>📖</span> Developpez.com Linux
+                    </a>
+                    <a href="https://openclassrooms.com/fr/courses/7170491-initiez-vous-a-linux" class="resource-link" target="_blank">
+                        <span>🎓</span> OpenClassrooms - Initiez-vous à Linux
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>💻 Maîtrise du Terminal Bash</h3>
+                    <p>Le shell Bash est votre interface principale dans Kali. Scripts, variables, boucles et automation indispensables.</p>
+                    <a href="https://www.fun-mooc.fr/fr/cours/maitriser-le-shell-bash/" class="resource-link" target="_blank">
+                        <span>⚡</span> FUN MOOC Bash
+                    </a>
+                    <a href="https://ineumann.developpez.com/tutoriels/linux/exercices-shell/" class="resource-link" target="_blank">
+                        <span>🏋️</span> 47 Exercices Bash avec corrections
+                    </a>
+                    <a href="https://dyma.fr/formations/linux-bash" class="resource-link" target="_blank">
+                        <span>🚀</span> Formation Bash Complète
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🌐 Concepts Réseau de Base</h3>
+                    <p>Comprenez TCP/IP, ports, protocols avant d'attaquer. Fondamentaux réseaux indispensables au pentesting.</p>
+                    <a href="https://openclassrooms.com/fr/courses/6944606-concevez-votre-reseau-tcp-ip" class="resource-link" target="_blank">
+                        <span>🔗</span> OpenClassrooms Réseau
+                    </a>
+                    <a href="https://www.it-connect.fr/cours-tutoriels/reseau/" class="resource-link" target="_blank">
+                        <span>📡</span> IT-Connect Réseau
+                    </a>
+                    <a href="https://cisco.goffinet.org/" class="resource-link" target="_blank">
+                        <span>🌍</span> Goffinet Cisco Gratuit
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🔒 Sécurité Informatique Basics</h3>
+                    <p>Notions de base en cybersécurité avant le pentest : vulnérabilités, attaques courantes, défenses classiques.</p>
+                    <a href="https://openclassrooms.com/fr/courses/1757741-securisez-vos-donnees-avec-la-cryptographie" class="resource-link" target="_blank">
+                        <span>🛡️</span> Cryptographie Basics
+                    </a>
+                    <a href="https://secnumacademie.gouv.fr/" class="resource-link" target="_blank">
+                        <span>🎯</span> ANSSI SecNumacadémie (FR)
+                    </a>
+                    <a href="https://cyber.gouv.fr/se-former-la-cybersecurite" class="resource-link" target="_blank">
+                        <span>📋</span> ANSSI - Formations cybersécurité
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📚 Méthodologie Pentest</h3>
+                    <p>Comprenez les phases d'un test de pénétration : reconnaissance, scanning, exploitation, post-exploitation.</p>
+                    <a href="https://owasp.org/www-project-web-security-testing-guide/" class="resource-link" target="_blank">
+                        <span>🕷️</span> OWASP Testing Guide
+                    </a>
+                    <a href="https://www.nist.gov/cyberframework" class="resource-link" target="_blank">
+                        <span>⚖️</span> NIST Framework
+                    </a>
+                    <a href="https://attack.mitre.org/" class="resource-link" target="_blank">
+                        <span>🎯</span> MITRE ATT&CK
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>⚡ Tests de Préparation</h3>
+                    <p>Validez vos connaissances avec ces plateformes d'évaluation avant de passer aux vrais challenges Kali.</p>
+                    <a href="https://overthewire.org/wargames/bandit/" class="resource-link" target="_blank">
+                        <span>🔰</span> OverTheWire Bandit
+                    </a>
+                    <a href="https://cmdchallenge.com/" class="resource-link" target="_blank">
+                        <span>💻</span> CMD Challenge
+                    </a>
+                    <a href="https://www.hackerrank.com/domains/shell" class="resource-link" target="_blank">
+                        <span>⚡</span> HackerRank Shell
+                    </a>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ IMPORTANT : Vérifiez Vos Prérequis !</h3>
+                <p style="color: #cccccc; margin-bottom: 20px; line-height: 1.6;">
+                    <strong>Avant de continuer avec Kali Linux, assurez-vous de pouvoir :</strong><br><br>
+                    ✅ Naviguer dans un système Linux avec le terminal<br>
+                    ✅ Comprendre les permissions et utilisateurs<br>  
+                    ✅ Écrire des scripts Bash basiques<br>
+                    ✅ Connaître les bases des réseaux (IP, ports, protocols)<br>
+                    ✅ Comprendre les concepts de sécurité informatique
+                </p>
+                <a href="#formations" onclick="showTab('formations')" class="resource-link" style="background: linear-gradient(45deg, #ff4500, #ff6500); color: #000;">
+                    🚀 Je maîtrise les prérequis, continuer !
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gestion des onglets
+        function showTab(tabName) {
+            // Masquer tous les contenus d'onglets
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Désactiver tous les onglets
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Activer l'onglet sélectionné
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Animation Matrix Background
+        function createMatrixRain() {
+            const matrix = document.getElementById('matrixBg');
+            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            function createChar() {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                char.style.left = Math.random() * window.innerWidth + 'px';
+                char.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                matrix.appendChild(char);
+                
+                setTimeout(() => {
+                    if (matrix.contains(char)) {
+                        matrix.removeChild(char);
+                    }
+                }, 8000);
+            }
+            
+            setInterval(createChar, 200);
+        }
+
+        // Smooth scrolling pour les liens
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId === 'formations') {
+                    showTab('formations');
+                }
+            });
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            createMatrixRain();
+            
+            // Animation d'apparition des cartes
+            const cards = document.querySelectorAll('.resource-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
