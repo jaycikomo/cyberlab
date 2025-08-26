@@ -1,0 +1,1886 @@
+    <!-- Portainer Tab -->
+    <div class="tab-content" id="portainer">
+        <div class="portainer-page">
+            <div class="page-header">
+                <div class="page-title">🐳 Portainer Master - Formation Docker Complète</div>
+                <p>De débutant à expert Docker - Maîtrisez l'écosystème conteneurisation</p>
+                
+                <!-- Vidéo de présentation -->
+                <div style="background: rgba(0,123,255,0.1); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <h3 style="color: #007bff; margin-bottom: 15px;">📺 Présentation Portainer</h3>
+                    <div style="background: #000; padding: 40px; border-radius: 10px; text-align: center; color: #666;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">▶️</div>
+                        <p><strong>Vidéo :</strong> "Portainer - L'interface qui révolutionne Docker"</p>
+                        <p style="font-size: 0.9em;">Durée : 12min | Niveau : Débutant</p>
+                        <a href="https://www.youtube.com/watch?v=8q9k1qzXRk4" target="_blank" class="btn btn-primary">🎬 Voir la Vidéo</a>
+                    </div>
+                </div>
+                
+                <div class="lab-stats" style="margin-top: 15px;">
+                    <div class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Modules Formation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Exercices Pratiques</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10h</div>
+                        <div class="stat-label">Formation Complète</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                
+                <!-- Module 1: Fondamentaux Docker -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Fondamentaux Docker & Première Connexion</div>
+                        <button class="solutions-tab" onclick="showSolutions(1)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Théorie Docker Fondamentale</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🐳 Écosystème Docker</h4>
+                                <p><strong>Docker Engine :</strong> Moteur de conteneurisation<br>
+                                <strong>Docker Images :</strong> Templates statiques (comme des ISO)<br>
+                                <strong>Docker Containers :</strong> Instances en cours d'exécution<br>
+                                <strong>Docker Registry :</strong> Hub central (Docker Hub, registries privés)</p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🏗️ Architecture Docker CyberLab</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+┌─────────────────┐    ┌──────────────────┐
+│   Portainer     │───▶│  Docker Engine   │
+│   :9000         │    │  (Daemon)        │
+└─────────────────┘    └──────────────────┘
+                                │
+                       ┌────────▼────────┐
+                       │   CyberLab      │
+                       │ ┌─────┐ ┌─────┐ │
+                       │ │DVWA │ │Kali │ │
+                       │ └─────┘ └─────┘ │
+                       └─────────────────┘
+           Réseau : v100_cyberlab_network
+           Subnet : 172.35.0.0/24
+</pre>
+                                </div>
+                            </div>
+                            
+                            <ul class="objectives-list">
+                                <li>Maîtriser les concepts fondamentaux Docker</li>
+                                <li>Comprendre Portainer comme GUI pour Docker</li>
+                                <li>Identifier l'architecture CyberLab complète</li>
+                                <li>Naviguer efficacement dans l'interface</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🛠 Première Connexion Guidée</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 1.1: Setup & Discovery</div>
+                                
+                                <div class="checklist">
+                                    <h4>✅ Phase 1: Première connexion</h4>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Ouvrir Portainer : <strong>http://127.0.0.1:9000</strong></span>
+                                        <button class="hint-btn" onclick="showHint('portainer_connect')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Se connecter avec les credentials existants</span>
+                                        <button class="hint-btn" onclick="showHint('portainer_login')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer le dashboard : containers actifs (~13), images (~25)</span>
+                                        <button class="hint-btn" onclick="showHint('dashboard_reading')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Identifier l'endpoint "local" Docker daemon</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="checklist">
+                                    <h4>✅ Phase 2: Interface Discovery</h4>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Menu gauche : identifier les 8 sections principales</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard : noter CPU/RAM usage du Docker Engine</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Quick actions : repérer "Add container" (ne pas créer)</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <p><strong>⚠️ IMPORTANT :</strong> CyberLab est fonctionnel - nous n'allons PAS modifier les conteneurs existants !</p>
+                                </div>
+                                
+                                <div>
+                                    <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-primary">🚀 Ouvrir Portainer</a>
+                                    <button class="btn btn-success" onclick="validateExercise(1, 1)">✅ Valider Exercice</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Observation des Conteneurs -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Observation & Analyse des Conteneurs CyberLab</div>
+                        <button class="solutions-tab" onclick="showSolutions(2)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Analyse des Conteneurs</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🔍 Métriques à Observer</h4>
+                                <p>
+                                • <strong>Status :</strong> Running, Exited, Paused, Restarting<br>
+                                • <strong>Uptime :</strong> Temps depuis le démarrage<br>
+                                • <strong>CPU Usage :</strong> % utilisation processeur<br>
+                                • <strong>Memory :</strong> RAM consommée vs disponible<br>
+                                • <strong>Network I/O :</strong> Trafic entrant/sortant<br>
+                                • <strong>Ports :</strong> Mappings port interne:externe
+                                </p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>📊 Architecture CyberLab</h4>
+                                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #007bff;">
+                                    <p><strong>Services principaux à analyser :</strong><br>
+                                    • <strong>cyberlab_dashboard</strong> (nginx) - Port 8080<br>
+                                    • <strong>cyberlab_webgoat</strong> (Java app) - Port 8082<br>
+                                    • <strong>cyberlab_dvwa</strong> (PHP/Apache) - Port 8081<br>
+                                    • <strong>cyberlab_juice_shop</strong> (Node.js) - Port 8083<br>
+                                    • <strong>cyberlab_mysql</strong> (Base de données)<br>
+                                    • <strong>cyberlab_kali</strong> (Pentesting tools)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔍 Observation Active</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 2.1: Inventaire Complet CyberLab</div>
+                                
+                                <p><strong>Mission :</strong> Cartographier l'infrastructure CyberLab (OBSERVATION uniquement)</p>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Containers → cyberlab_dashboard → Inspect : noter l'image utilisée</span>
+                                        <button class="hint-btn" onclick="showHint('container_inspect')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Network section : identifier l'IP (172.35.0.20)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes : examiner le bind mount vers /var/www/html</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Environment : lister 3 variables d'environnement</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Ports : identifier le mapping 80:8080</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #ff8c00;">🔍 Challenge : WebGoat Forensics</h4>
+                                    <p>Pour <strong>cyberlab_webgoat</strong>, déterminez :</p>
+                                    <p>• Quelle version Java utilise-t-il ? (logs)<br>
+                                    • Combien de ports expose-t-il ?<br>
+                                    • Quelle est sa consommation RAM actuelle ?<br>
+                                    • À quels autres conteneurs peut-il parler ?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 2.2: Monitoring en Temps Réel</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Container cyberlab_webgoat → Stats : observer métriques temps réel</span>
+                                        <button class="hint-btn" onclick="showHint('realtime_stats')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Générer trafic : ouvrir http://127.0.0.1:8082 plusieurs fois</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer impact sur CPU/Memory pendant l'activité</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Comparer les stats avec cyberlab_dashboard au repos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Analyse Logs Professionnelle -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Analyse des Logs & Debugging</div>
+                        <button class="solutions-tab" onclick="showSolutions(3)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Logs Docker Professionnels</div>
+                            
+                            <div class="docker-concept">
+                                <h4>📋 Types de Logs</h4>
+                                <p>
+                                • <strong>Application logs :</strong> Nginx, Apache, Java apps<br>
+                                • <strong>Error logs :</strong> Exceptions, crashes, warnings<br>
+                                • <strong>Access logs :</strong> Requêtes HTTP, connexions<br>
+                                • <strong>System logs :</strong> Démarrage/arrêt services<br>
+                                • <strong>Security logs :</strong> Authentifications, intrusions
+                                </p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🎯 Patterns à Reconnaître</h4>
+                                <p>
+                                • <strong>Timestamps :</strong> Chronologie des événements<br>
+                                • <strong>Log levels :</strong> INFO, WARN, ERROR, FATAL<br>
+                                • <strong>IPs sources :</strong> Origine des requêtes<br>
+                                • <strong>Status codes :</strong> 200, 404, 500, 403<br>
+                                • <strong>Response times :</strong> Performance applicative
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔍 Lab Analyse Logs Live</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 3.1: Logs Web Dashboard</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Logs cyberlab_dashboard → Identifier format nginx</span>
+                                        <button class="hint-btn" onclick="showHint('nginx_logs')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Générer activité : naviguer sur http://127.0.0.1:8080</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Recharger logs → Observer nouvelles entrées temps réel</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Analyser : IP source, méthode HTTP, code réponse, taille</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #1e1e1e; color: #00ff88; padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                                    <div style="color: #ccc; margin-bottom: 10px;">Exemple log nginx :</div>
+                                    <div>172.35.0.1 - - [25/Aug/2025:14:30:45] "GET /exploration_guide.html HTTP/1.1" 200 76041 "-" "Mozilla/5.0"</div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 3.2: Debug Application Java</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Logs cyberlab_webgoat → Chercher "Started StartWebGoat"</span>
+                                        <button class="hint-btn" onclick="showHint('java_startup')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Identifier version JVM et profil actif</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Noter port d'écoute interne et modules chargés</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Repérer warnings ou exceptions éventuels</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 3.3: Corrélation Multi-Services</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Ouvrir 3 onglets : dashboard, webgoat, juice_shop logs</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Naviguer simultanément sur les 3 applications</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Corréler : même timestamp, IPs, patterns d'usage</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #ff8c00;">🔥 Pro Tip : Log Analysis</h4>
+                                    <p><strong>Technique avancée :</strong></p>
+                                    <p>1. Noter timestamp exact d'une action<br>
+                                    2. Chercher le même timestamp dans les logs<br>
+                                    3. Tracer la chaîne : User → Nginx → Application → Database<br>
+                                    4. Identifier les goulots d'étranglement</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: Réseaux Docker -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Réseaux Docker - Création & Tests</div>
+                        <button class="solutions-tab" onclick="showSolutions(4)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Architecture Réseau</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🌐 Types de Réseaux Docker</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+🔒 CYBERLAB NETWORK     ┌─────────────────┐
+   172.35.0.0/24        │   Dashboard     │
+                        │   172.35.0.20   │
+   ┌─────────────────────┼─────────────────┤
+   │     Gateway         │   WebGoat       │
+   │     172.35.0.1      │   172.35.0.80   │
+   └─────────────────────┼─────────────────┤
+                        │   DVWA          │
+                        │   172.35.0.81   │
+                        └─────────────────┘
+
+📡 TEST NETWORK         ┌─────────────────┐
+   10.10.0.0/24         │   Test Apps     │
+                        │   10.10.0.x     │
+                        └─────────────────┘
+</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🔧 Isolation & Connectivité</h4>
+                                <p>
+                                • <strong>Bridge networks :</strong> Isolés par défaut<br>
+                                • <strong>Custom networks :</strong> DNS intégré<br>
+                                • <strong>Multiple networks :</strong> Un conteneur = plusieurs réseaux<br>
+                                • <strong>Network policies :</strong> Contrôle de trafic<br>
+                                • <strong>Port exposition :</strong> Host → Container
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔧 Création Réseaux Test</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 4.1: Analyse Réseau CyberLab</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Networks → v100_cyberlab_network → Inspect</span>
+                                        <button class="hint-btn" onclick="showHint('network_inspect')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Subnet : vérifier 172.35.0.0/24</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Gateway : confirmer 172.35.0.1</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Connected containers : lister les IPs des services</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Driver : noter "bridge" avec DNS personnalisé</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #ff8c00;">🗺️ Plan d'Adressage CyberLab</h4>
+                                    <p><strong>Cartographie réseau :</strong></p>
+                                    <p>• Gateway : 172.35.0.1<br>
+                                    • Portainer : 172.35.0.2<br>
+                                    • Dashboard : 172.35.0.20<br>
+                                    • WebGoat : 172.35.0.80<br>
+                                    • DVWA : 172.35.0.81<br>
+                                    • Kali : 172.35.0.100</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 4.2: Créer Réseau de Test</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Networks → Add network → "training_network"</span>
+                                        <button class="hint-btn" onclick="showHint('create_network')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Driver: bridge, Subnet: 10.20.0.0/24</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Gateway: 10.20.0.1 (auto), Deploy le réseau</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier dans la liste des réseaux disponibles</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 4.3: Test Connectivité</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Containers → Add container → nginx (nom: test-web1)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Network: training_network, Port: 8090:80</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Deploy → Tester http://127.0.0.1:8090</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Créer test-web2 sur même réseau (port 8091)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Console → test-web1 → ping test-web2 (par nom)</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <p><strong>🧪 Résultat attendu :</strong> Les conteneurs peuvent se pinger par nom grâce au DNS Docker intégré !</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5: Volumes & Persistance -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Volumes Docker - Gestion des Données</div>
+                        <button class="solutions-tab" onclick="showSolutions(5)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Stratégies de Persistance</div>
+                            
+                            <div class="docker-concept">
+                                <h4>💾 Types de Volumes</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+🗂️ BIND MOUNTS           🗄️ DOCKER VOLUMES        🏃 TMPFS
+/host/path               docker volume create      RAM temporaire
+     ↓                        ↓                         ↓
+/container/path       /var/lib/docker/volumes/   /container/tmpfs
+
+✅ Contrôle total        ✅ Géré par Docker        ✅ Performance max
+❌ Dépendance hôte       ❌ Moins flexible         ❌ Non persistant
+🎯 Développement        🎯 Production              🎯 Cache/Temp
+</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🔄 Cas d'Usage</h4>
+                                <p>
+                                • <strong>Bases de données :</strong> Volumes Docker (mysql_data)<br>
+                                • <strong>Configuration :</strong> Bind mounts (/etc/nginx)<br>
+                                • <strong>Logs :</strong> Volumes avec rotation automatique<br>
+                                • <strong>Cache :</strong> tmpfs pour performance<br>
+                                • <strong>Backup :</strong> Export/Import volumes
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">💾 Manipulation Volumes Test</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 5.1: Audit Volumes CyberLab</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes → Lister tous les volumes (mysql_data, wazuh_data...)</span>
+                                        <button class="hint-btn" onclick="showHint('volume_inspect')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>mysql_data → Inspect → Noter le mountpoint système</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier taille utilisée et driver (local)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Identifier quels conteneurs utilisent chaque volume</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 5.2: Créer & Tester Volume</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes → Add volume → "training_data"</span>
+                                        <button class="hint-btn" onclick="showHint('create_volume')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Driver: local, Deploy le volume</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Container → Alpine → Volume training_data:/data</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Console → echo "Test persistance" > /data/test.txt</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Supprimer conteneur → Recréer → Vérifier /data/test.txt</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <p><strong>✅ Succès :</strong> Le fichier persiste même après suppression du conteneur !</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 5.3: Volume Sharing</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Créer nginx-writer avec volume training_data:/usr/share/nginx/html</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Console nginx → echo "<h1>Shared Data</h1>" > /usr/share/nginx/html/index.html</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Créer nginx-reader avec même volume (port 8092)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Tester http://127.0.0.1:8092 → Voir contenu partagé</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 6: Docker Compose & Stacks -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">6</div>
+                        <div class="step-title">Docker Compose & Stacks - Orchestration</div>
+                        <button class="solutions-tab" onclick="showSolutions(6)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Orchestration Multi-Conteneurs</div>
+                            
+                            <div class="docker-concept">
+                                <h4>📋 Anatomie docker-compose.yml</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - web_data:/usr/share/nginx/html
+    networks:
+      - app_network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: webapp
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  web_data:
+  db_data:
+
+networks:
+  app_network:
+</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🎯 Avantages Stacks Portainer</h4>
+                                <p>
+                                • <strong>Interface graphique :</strong> Édition YAML simplifiée<br>
+                                • <strong>Validation :</strong> Syntaxe vérifiée avant déploiement<br>
+                                • <strong>Variables d'env :</strong> Gestion centralisée<br>
+                                • <strong>Monitoring :</strong> État de tous les services<br>
+                                • <strong>Rollback :</strong> Retour versions précédentes
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🏗️ Stacks en Action</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 6.1: Analyse Stack CyberLab</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Stacks → formation-cybersecurite → Editor</span>
+                                        <button class="hint-btn" onclick="showHint('stack_editor')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Section services : compter les ~13 services définis</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Networks : repérer v100_cyberlab_network</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes : identifier mysql_data, wazuh_data</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dépendances : depends_on entre services</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #ff8c00;">🔍 Décryptage Stack CyberLab</h4>
+                                    <p><strong>Structure analysée :</strong></p>
+                                    <p>• <strong>13 services</strong> orchestrés<br>
+                                    • <strong>Réseau custom</strong> avec IPs fixes<br>
+                                    • <strong>Volumes persistants</strong> pour données<br>
+                                    • <strong>Variables d'env</strong> centralisées<br>
+                                    • <strong>Healthchecks</strong> pour monitoring</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 6.2: Créer Stack Training</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Stacks → Add stack → Name: "training-lamp"</span>
+                                        <button class="hint-btn" onclick="showHint('create_stack')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Editor → Coller le YAML LAMP stack</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Deploy stack → Observer déploiement en temps réel</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier : 3 conteneurs créés (web, db, phpmyadmin)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Test : http://127.0.0.1:8093 (Apache), :8094 (phpMyAdmin)</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #1e1e1e; color: #00ff88; padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                                    <div style="color: #ccc; margin-bottom: 10px;">YAML Stack LAMP :</div>
+<pre style="margin: 0; font-size: 0.85em;">version: '3.8'
+services:
+  web:
+    image: php:8.0-apache
+    ports:
+      - "8093:80"
+    volumes:
+      - web_data:/var/www/html
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: training123
+      MYSQL_DATABASE: testdb
+    volumes:
+      - db_data:/var/lib/mysql
+  pma:
+    image: phpmyadmin:latest
+    ports:
+      - "8094:80"
+    environment:
+      PMA_HOST: db
+volumes:
+  web_data:
+  db_data:</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 6.3: Gestion Stack</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Stack training-lamp → Editor → Modifier port web (8093→8095)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Update stack → Observer rolling update</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier nouveau port http://127.0.0.1:8095</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Stop stack → Start stack (contrôle cycle de vie)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 7: Images & Registry -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">7</div>
+                        <div class="step-title">Images Docker - Build & Gestion</div>
+                        <button class="solutions-tab" onclick="showSolutions(7)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Images & Layers</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🏗️ Système de Couches</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+📊 NGINX IMAGE LAYERS           🔍 TAILLES TYPIQUES
+nginx:alpine                    • Alpine base: ~5MB
+├── Layer 1: Alpine 3.18        • Ubuntu base: ~70MB
+├── Layer 2: nginx install      • CentOS base: ~200MB
+├── Layer 3: config files       • Node.js: ~180MB
+└── Layer 4: startup script     • Python 3.9: ~45MB
+
+💡 PARTAGE DE COUCHES           🚀 OPTIMISATIONS
+Images avec même base           • Multi-stage builds
+partagent les layers           • .dockerignore
+= Économie d'espace             • Minimal base images
+</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>📦 Sources d'Images</h4>
+                                <p>
+                                • <strong>Docker Hub :</strong> Registry public principal<br>
+                                • <strong>GitHub Packages :</strong> ghcr.io/user/image<br>
+                                • <strong>Cloud registries :</strong> AWS ECR, Azure ACR<br>
+                                • <strong>Registries privés :</strong> Harbor, Nexus<br>
+                                • <strong>Builds locaux :</strong> Dockerfile custom
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔨 Manipulation Images</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 7.1: Audit Images CyberLab</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Images → Trier par Size → Identifier top 5 plus grosses</span>
+                                        <button class="hint-btn" onclick="showHint('images_audit')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>nginx:alpine → Inspect → Analyser les layers</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Comparer tailles : Alpine vs Ubuntu vs CentOS bases</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Images unused → Lister images non utilisées</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #ff8c00;">📊 Images CyberLab Typiques</h4>
+                                    <p><strong>Analyse des tailles :</strong></p>
+                                    <p>• <strong>nginx:alpine</strong> (~23MB) - Léger et sécurisé<br>
+                                    • <strong>mysql:8.0</strong> (~500MB) - Base complète<br>
+                                    • <strong>kalilinux/kali-rolling</strong> (~1.5GB) - Outils complets<br>
+                                    • <strong>owasp/webgoat</strong> (~450MB) - Java + dépendances</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 7.2: Pull & Tag Images</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Images → Pull image → "alpine:latest"</span>
+                                        <button class="hint-btn" onclick="showHint('pull_image')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer download des layers en temps réel</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Image alpine → Tag → "training/alpine:v1.0"</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier : 2 tags pointent vers même image ID</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 7.3: Build Custom Image</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Images → Build image → Name: "training/custom-web"</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Build method: Upload</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dockerfile simple avec nginx + page custom</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer build process et layers créés</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Test: conteneur avec image custom (port 8096)</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #1e1e1e; color: #00ff88; padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                                    <div style="color: #ccc; margin-bottom: 10px;">Dockerfile exemple :</div>
+<pre style="margin: 0; font-size: 0.85em;">FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</pre>
+                                    <div style="color: #ccc; margin: 10px 0 5px 0;">index.html :</div>
+<pre style="margin: 0; font-size: 0.85em;">&lt;h1&gt;Training Docker Image&lt;/h1&gt;
+&lt;p&gt;Built with Portainer!&lt;/p&gt;</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 8: Monitoring & Performance -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">8</div>
+                        <div class="step-title">Monitoring & Performance</div>
+                        <button class="solutions-tab" onclick="showSolutions(8)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Monitoring Production</div>
+                            
+                            <div class="docker-concept">
+                                <h4>📊 Métriques Essentielles</h4>
+                                <p>
+                                • <strong>CPU Usage :</strong> % utilisation par conteneur<br>
+                                • <strong>Memory :</strong> RAM + Swap, limites<br>
+                                • <strong>Network I/O :</strong> Bytes in/out, connections<br>
+                                • <strong>Block I/O :</strong> IOPS disque, throughput<br>
+                                • <strong>PIDs :</strong> Nombre processus actifs<br>
+                                • <strong>Uptime :</strong> Stabilité services
+                                </p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>⚡ Optimisation Performance</h4>
+                                <p>
+                                • <strong>Resource limits :</strong> Éviter memory leaks<br>
+                                • <strong>Health checks :</strong> Auto-restart défaillants<br>
+                                • <strong>Multi-stage builds :</strong> Images légères<br>
+                                • <strong>Caching layers :</strong> Builds plus rapides<br>
+                                • <strong>Volume drivers :</strong> Performance I/O
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">📈 Analysis Performance</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 8.1: Monitoring Live</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard → Resource usage overview</span>
+                                        <button class="hint-btn" onclick="showHint('system_monitoring')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Container training-lamp_web → Stats temps réel</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Générer charge : ab -n 100 -c 10 http://127.0.0.1:8095/</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer spikes CPU/Memory pendant le test</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 8.2: Resource Limits</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Add container → nginx → Name: "limited-web"</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Advanced → Resources → Memory: 64MB, CPU: 0.5</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Deploy → Stats → Vérifier limites appliquées</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Comparer avec conteneur sans limites</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <p><strong>💡 Resource limits :</strong> Protègent le système contre les conteneurs gourmands !</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 8.3: Health Checks</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Edit training-lamp stack → Ajouter healthcheck web</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Update stack → Observer health status</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Container details → Health check logs</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #1e1e1e; color: #00ff88; padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                                    <div style="color: #ccc; margin-bottom: 10px;">Healthcheck YAML :</div>
+<pre style="margin: 0; font-size: 0.85em;">healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 9: Sécurité Docker -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">9</div>
+                        <div class="step-title">Sécurité Docker - Bonnes Pratiques</div>
+                        <button class="solutions-tab" onclick="showSolutions(9)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Sécurité Conteneurs</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🔒 Vecteurs de Risque</h4>
+                                <p>
+                                • <strong>Root containers :</strong> Privilèges excessifs<br>
+                                • <strong>Image vulnerabilities :</strong> CVE non patchées<br>
+                                • <strong>Network exposure :</strong> Ports inutiles exposés<br>
+                                • <strong>Secrets exposure :</strong> Passwords en clear<br>
+                                • <strong>Docker socket :</strong> Accès daemon Docker
+                                </p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🛡️ Mesures Préventives</h4>
+                                <p>
+                                • <strong>Non-root users :</strong> UID/GID mapping<br>
+                                • <strong>Read-only FS :</strong> Conteneurs immutables<br>
+                                • <strong>Capabilities :</strong> Privilèges Linux minimaux<br>
+                                • <strong>Network segmentation :</strong> Isolation services<br>
+                                • <strong>Secrets management :</strong> Variables chiffrées
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔐 Audit & Hardening</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 9.1: Security Audit</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Container cyberlab_dashboard → Inspect → User section</span>
+                                        <button class="hint-btn" onclick="showHint('security_audit')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier si UID=0 (root) ou non-root</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Network → Ports exposés vs nécessaires</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes → Bind mounts sensibles (/var/run/docker.sock)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Environment → Mots de passe en clair</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,193,7,0.1), rgba(220,53,69,0.05)); border: 2px solid #dc3545; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                                    <h4 style="color: #dc3545;">🚨 Findings Audit CyberLab</h4>
+                                    <p><strong>Points d'attention détectés :</strong></p>
+                                    <p>• <strong>Root containers :</strong> Plusieurs services UID=0<br>
+                                    • <strong>Docker socket :</strong> Dashboard accès complet daemon<br>
+                                    • <strong>Network :</strong> Services sur même réseau<br>
+                                    • <strong>Passwords :</strong> Variables d'environnement visibles</p>
+                                    <p><em>⚠️ Normal pour environnement de formation, dangereux en production !</em></p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 9.2: Conteneur Durci</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Add container → nginx:alpine → Name: "secure-nginx"</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Advanced → Security/Host → User: 1001:1001</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Read-only root filesystem: ✅</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>No new privileges: ✅</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Deploy → Tester fonctionnement sécurisé</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <p><strong>✅ Résultat :</strong> Conteneur fonctionnel avec surface d'attaque minimale !</p>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 9.3: Network Isolation</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Networks → Add → "secure_network" (10.30.0.0/24)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Déployer secure-nginx sur secure_network</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Tester isolation : ping depuis training_network</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier : pas de communication inter-réseaux</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 10: Troubleshooting & DevOps -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">10</div>
+                        <div class="step-title">Troubleshooting & DevOps Mastery</div>
+                        <button class="solutions-tab" onclick="showSolutions(10)">💡 Solutions Live</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Diagnostic Professionnel</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🔍 Méthodologie Debug</h4>
+                                <p>
+                                1. <strong>Symptôme :</strong> Identifier le problème<br>
+                                2. <strong>Hypothèses :</strong> Causes possibles<br>
+                                3. <strong>Tests :</strong> Validation hypothèses<br>
+                                4. <strong>Isolation :</strong> Reproduire le bug<br>
+                                5. <strong>Correction :</strong> Patch et tests<br>
+                                6. <strong>Documentation :</strong> Post-mortem
+                                </p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🛠️ Outils Debug Docker</h4>
+                                <p>
+                                • <strong>Logs analysis :</strong> Patterns, timestamps<br>
+                                • <strong>Exec interactif :</strong> Shell dans conteneur<br>
+                                • <strong>Inspect détaillé :</strong> Configuration complète<br>
+                                • <strong>Stats temps réel :</strong> Métriques système<br>
+                                • <strong>Network troubleshooting :</strong> DNS, connectivité
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🔧 Résolution Problèmes</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 10.1: Simulation Panne Contrôlée</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Créer conteneur "problematic-app" avec limite 32MB</span>
+                                        <button class="hint-btn" onclick="showHint('debug_scenario')">💡</button>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer crash OOM (Out Of Memory)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Analyser exit code et cause dans logs</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Solution : augmenter limite mémoire</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Vérifier stabilité après correction</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 10.2: Network Debugging</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Problème simulé : service injoignable</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Debug 1 : Vérifier état conteneur (running?)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Debug 2 : Mapping ports correct?</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Debug 3 : Firewall/iptables règles</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Debug 4 : Logs applicatifs pour erreurs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 10.3: Performance Tuning</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Identifier conteneur avec highest CPU usage</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Analyser cause : logs, processus, charge</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Optimisations : resource limits, replicas</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Monitoring post-optimisation</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 25px; margin: 25px 0;">
+                                    <h4 style="color: #ffd700; margin-bottom: 15px;">🏆 CERTIFICATION PORTAINER MASTER</h4>
+                                    <p><strong>🎉 Félicitations ! Vous maîtrisez maintenant :</strong></p>
+                                    <p>✅ <strong>Interface Portainer</strong> - Navigation experte<br>
+                                    ✅ <strong>Conteneurs Docker</strong> - Analyse, monitoring, debugging<br>
+                                    ✅ <strong>Réseaux & Volumes</strong> - Création, isolation, persistance<br>
+                                    ✅ <strong>Stacks & Compose</strong> - Orchestration multi-services<br>
+                                    ✅ <strong>Images & Registry</strong> - Build, optimisation, gestion<br>
+                                    ✅ <strong>Monitoring & Performance</strong> - Métriques, limites<br>
+                                    ✅ <strong>Sécurité Docker</strong> - Hardening, audit, bonnes pratiques<br>
+                                    ✅ <strong>Troubleshooting</strong> - Diagnostic, résolution</p>
+                                    
+                                    <p><strong>🎯 Niveau atteint :</strong> Docker Expert / DevOps Engineer</p>
+                                    <p><strong>🏢 Compétences pro :</strong> Administration conteneurs production</p>
+                                    
+                                    <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ffd700;">
+                                        <p><strong>🚀 Étapes suivantes recommandées :</strong></p>
+                                        <p>• Kubernetes (orchestration avancée)<br>
+                                        • CI/CD avec Docker (GitLab, Jenkins)<br>
+                                        • Monitoring avancé (Prometheus, Grafana)<br>
+                                        • Security scanning (Trivy, Clair)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Cleanup des conteneurs de test -->
+            <div style="background: rgba(220,53,69,0.1); border: 2px solid #dc3545; border-radius: 15px; padding: 20px; margin: 30px 0;">
+                <h3 style="color: #dc3545; margin-bottom: 15px;">🧹 Nettoyage Environnement</h3>
+                <p><strong>Après formation, nettoyer les conteneurs de test :</strong></p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                        <span>Supprimer stack "training-lamp"</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                        <span>Remove containers : test-web1, test-web2, secure-nginx</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                        <span>Remove networks : training_network, secure_network</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                        <span>Remove volumes : training_data (si plus utilisé)</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                        <span>Images → Remove unused images (alpine, custom builds)</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><em>⚠️ CyberLab reste intact et fonctionnel !</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript pour le système de corrections et interactions -->
+    <script>
+        // Système de corrections live pour chaque module
+        function showSolutions(moduleNum) {
+            const solutions = {
+                1: `🎯 SOLUTIONS MODULE 1 - Fondamentaux & Connexion
+
+✅ Connexion Portainer :
+- URL exacte : http://127.0.0.1:9000
+- Si première fois : créer admin/password
+- Si déjà configuré : utiliser credentials existants
+- Erreur de connexion ? → docker ps | grep portainer
+
+✅ Dashboard Overview :
+- Containers actifs : ~13 (tous CyberLab services)
+- Images présentes : ~25 (stack complète)
+- CPU usage normal : 15-35% selon activité
+- Memory usage : 2-6GB selon utilisation
+- Endpoint : "local" (Docker daemon local)
+
+✅ Navigation Interface :
+- Menu gauche : Dashboard, Containers, Images, Networks, Volumes, Stacks, Events, Settings
+- Quick actions : en haut à droite (Add container, etc.)
+- Recherche globale : Ctrl+K
+- Refresh automatique stats : toutes les 5 secondes`,
+
+                2: `🎯 SOLUTIONS MODULE 2 - Observation Conteneurs
+
+✅ Dashboard CyberLab Analysis :
+- Image : cyberlab/dashboard:latest (nginx)
+- IP : 172.35.0.20 (réseau v100_cyberlab_network)
+- Ports : 80:8080 (conteneur:hôte)
+- Volume : bind mount vers /var/www/html
+- Variables importantes : MYSQL_HOST, MYSQL_DATABASE
+
+✅ WebGoat Forensics :
+- Image : webgoat/goatandwolf ou webgoat/webgoat
+- Ports : 8080 (interne), 9090 (JMX), mappé sur 8082
+- RAM usage : 400-800MB selon activité
+- JVM : OpenJDK 11+ avec Spring Boot
+- Réseau : v100_cyberlab_network
+- Status : Always running (restart: unless-stopped)
+
+✅ Stats Temps Réel :
+- Container → [nom] → Stats tab
+- Métriques : CPU %, Memory usage/limit, Network RX/TX, Block I/O
+- Refresh auto : toutes les 2 secondes`,
+
+                3: `🎯 SOLUTIONS MODULE 3 - Analyse Logs
+
+✅ Logs Dashboard Nginx :
+- Format : Combined Log Format Apache
+- Pattern : IP - - [timestamp] "METHOD /path HTTP/1.1" status size
+- IP source : 172.35.0.1 (Docker host)
+- Codes courants : 200 (OK), 304 (Not Modified), 404 (Not Found)
+- Pages populaires : /, /exploration_guide.html, /assets/*
+
+✅ WebGoat Java Startup :
+- Message clé : "Started StartWebGoat in X.X seconds"
+- JVM info : OpenJDK 11.x.x ou supérieur
+- Port interne : 8080 (Spring Boot Tomcat)
+- Profil actif : standalone ou webgoat
+- Base URL : http://localhost:8080/WebGoat
+
+✅ Debug Techniques :
+- Live tailing : logs auto-refresh activé
+- Pattern matching : rechercher ERROR, WARN, Exception
+- Timestamp correlation : même temps = événements liés
+- Multi-services : ouvrir plusieurs onglets logs`,
+
+                4: `🎯 SOLUTIONS MODULE 4 - Réseaux Docker
+
+✅ CyberLab Network Analysis :
+- Nom : v100_cyberlab_network
+- Type : bridge custom avec DNS
+- Subnet : 172.35.0.0/24 (254 IPs disponibles)
+- Gateway : 172.35.0.1
+- Driver : bridge avec isolation par défaut
+
+✅ Plan d'Adressage :
+- Gateway : 172.35.0.1
+- Portainer : 172.35.0.2
+- Dashboard : 172.35.0.20
+- WebGoat : 172.35.0.80
+- DVWA : 172.35.0.81
+- Juice Shop : 172.35.0.83
+- Kali : 172.35.0.100
+
+✅ Réseau Test Creation :
+- Nom : training_network
+- Subnet : 10.20.0.0/24 (éviter conflits)
+- DNS intégré : containers peuvent se pinger par nom
+- Isolation : containers sur réseaux différents ne communiquent pas`,
+
+                5: `🎯 SOLUTIONS MODULE 5 - Volumes Docker
+
+✅ Volumes CyberLab Existants :
+- mysql_data : base de données MySQL persistante
+- wazuh_data : données SIEM Wazuh
+- Driver : local (stockage sur hôte Docker)
+- Location : /var/lib/docker/volumes/[nom]/_data
+
+✅ Volume Test Creation :
+- Nom : training_data
+- Type : Docker managed volume
+- Mount point conteneur : /data
+- Persistance : survit à suppression conteneur
+- Sharing : plusieurs conteneurs peuvent monter même volume
+
+✅ Bind vs Volume :
+- Bind mount : /host/path:/container/path (développement)
+- Docker volume : volume_name:/container/path (production)
+- tmpfs : RAM temporaire (cache, performances)`,
+
+                6: `🎯 SOLUTIONS MODULE 6 - Stacks & Compose
+
+✅ Stack CyberLab Structure :
+- Services : ~13 définis (dashboard, webgoat, dvwa, etc.)
+- Network : v100_cyberlab_network avec IPs fixes
+- Volumes : mysql_data, wazuh_data pour persistance
+- depends_on : ordre de démarrage (db avant apps)
+- Environment : variables centralisées par service
+
+✅ LAMP Stack YAML :
+version: '3.8'
+services:
+  web:
+    image: php:8.0-apache
+    ports: ["8093:80"]
+    volumes: [web_data:/var/www/html]
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: training123
+      MYSQL_DATABASE: testdb
+volumes: {web_data:, db_data:}
+
+✅ Stack Management :
+- Deploy : création tous services simultanément  
+- Update : rolling update sans downtime
+- Stop/Start : contrôle cycle de vie complet`,
+
+                7: `🎯 SOLUTIONS MODULE 7 - Images Docker
+
+✅ Images Audit CyberLab :
+- nginx:alpine : ~23MB (base minimaliste)
+- mysql:8.0 : ~500MB (base complète avec outils)
+- kalilinux/kali-rolling : ~1.5GB (distribution complète)
+- webgoat containers : ~400-600MB (Java + dépendances)
+
+✅ Layer System :
+- Chaque ligne Dockerfile = 1 layer
+- Layers partagés entre images similaires
+- Cache intelligent lors des builds
+- Optimisation : combiner RUN commands
+
+✅ Build Process :
+- Dockerfile → docker build → image
+- Tags : versioning et aliases  
+- Registry : push/pull depuis Docker Hub
+- Multi-stage : build optimisé (dev deps vs prod)`,
+
+                8: `🎯 SOLUTIONS MODULE 8 - Monitoring
+
+✅ Métriques Key Performance :
+- CPU % : utilisation processeur par conteneur
+- Memory : RAM utilisée vs limite définie
+- Network I/O : trafic entrant/sortant en bytes
+- Block I/O : lectures/écritures disque (IOPS)
+- PIDs : nombre processus actifs
+
+✅ Resource Limits :
+- Memory limit : évite OOM kill système
+- CPU limit : 0.5 = 50% d'1 CPU core
+- Monitoring : stats temps réel dans Portainer
+- Alerting : health checks pour auto-restart
+
+✅ Performance Optimization :
+- Right-sizing : limites appropriées par workload
+- Health checks : détection proactive pannes
+- Multi-stage builds : images plus légères
+- Volume drivers : I/O performance selon usage`,
+
+                9: `🎯 SOLUTIONS MODULE 9 - Sécurité Docker
+
+✅ Security Audit Results :
+- Root containers : plusieurs services UID=0 (normal formation)
+- Docker socket : /var/run/docker.sock monté (dashboard admin)
+- Network : tous services même réseau (isolation limitée)  
+- Secrets : passwords en variables d'environnement (visible)
+
+✅ Hardening Techniques :
+- Non-root user : UID/GID 1001:1001
+- Read-only filesystem : immutable containers
+- No new privileges : prevent privilege escalation
+- Minimal capabilities : drop ALL, add minimum required
+- Network isolation : separate networks par fonction
+
+✅ Production Recommendations :
+- Secrets management : Docker secrets ou Vault
+- Network policies : micro-segmentation
+- Image scanning : Trivy, Snyk pour CVE
+- Runtime security : Falco pour anomaly detection`,
+
+                10: `🎯 SOLUTIONS MODULE 10 - Troubleshooting
+
+✅ Debug Methodology :
+1. Symptom identification : what's broken?
+2. Log analysis : container logs, system logs
+3. Resource check : CPU/Memory/Disk/Network
+4. Configuration review : ports, networks, volumes
+5. Isolation testing : minimal reproduction case
+6. Fix implementation : patch and verify
+
+✅ Common Issues & Fixes :
+- Container won't start → check image, ports, resources
+- Service unreachable → verify port mapping, networks
+- Performance issues → check resource limits, logs
+- Data loss → verify volume mounts, persistence
+- Memory leaks → analyze resource usage trends
+
+✅ Production Best Practices :
+- Health checks : proactive monitoring
+- Resource limits : prevent resource exhaustion  
+- Logging strategy : centralized log management
+- Backup procedures : data and configuration
+- Monitoring alerts : automated issue detection
+
+🏆 CERTIFICATION COMPLETE!
+Vous êtes maintenant Docker + Portainer Expert !`
+            };
+            
+            const solution = solutions[moduleNum] || "Solutions en cours de préparation...";
+            
+            // Créer une popup personnalisée
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            `;
+            
+            popup.innerHTML = `
+                <div style="
+                    background: white;
+                    border-radius: 15px;
+                    padding: 30px;
+                    max-width: 800px;
+                    max-height: 80vh;
+                    overflow-y: auto;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                ">
+                    <div style="
+                        background: linear-gradient(135deg, #28a745, #20c997);
+                        color: white;
+                        padding: 15px 20px;
+                        margin: -30px -30px 20px -30px;
+                        border-radius: 15px 15px 0 0;
+                        font-weight: bold;
+                        font-size: 1.2em;
+                    ">
+                        💡 Solutions Live - Module ${moduleNum}
+                    </div>
+                    <pre style="
+                        white-space: pre-wrap;
+                        line-height: 1.6;
+                        font-family: 'Segoe UI', sans-serif;
+                        color: #333;
+                        margin: 0;
+                        font-size: 0.95em;
+                    ">${solution}</pre>
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button onclick="this.closest('div').parentElement.remove()" style="
+                            background: linear-gradient(135deg, #007bff, #0056b3);
+                            color: white;
+                            border: none;
+                            padding: 12px 30px;
+                            border-radius: 25px;
+                            cursor: pointer;
+                            font-weight: bold;
+                        ">✅ Fermer</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+        }
+
+        // Système d'aide contextuelle
+        function showHint(hintId) {
+            const hints = {
+                'portainer_connect': 'Astuce : Si Portainer ne répond pas, vérifiez "docker ps | grep portainer" pour confirmer que le conteneur est running',
+                'portainer_login': 'Astuce : Si première connexion, créez admin/password. Sinon utilisez les credentials existants du lab',
+                'dashboard_reading': 'Astuce : Dashboard montre vue d\'ensemble : containers actifs, images, CPU/RAM global, version Docker',
+                'container_inspect': 'Astuce : Inspect = configuration complète en JSON. Utilisez Ctrl+F pour chercher dans la config',
+                'realtime_stats': 'Astuce : Stats se refreshent auto toutes les 2s. Générez du trafic pour voir l\'impact en temps réel',
+                'nginx_logs': 'Astuce : Logs nginx format "Combined" = IP timestamp "METHOD /path" status_code response_size',
+                'java_startup': 'Astuce : Cherchez "Started StartWebGoat" pour confirmer startup complet application Java',
+                'network_inspect': 'Astuce : Section Connected containers montre tous les conteneurs sur ce réseau avec leurs IPs',
+                'create_network': 'Astuce : Utilisez subnet privés (10.x, 172.x, 192.168.x) pour éviter conflits réseau',
+                'volume_inspect': 'Astuce : Mountpoint montre localisation réelle sur hôte Docker (/var/lib/docker/volumes/)',
+                'create_volume': 'Astuce : Volumes Docker sont managed, bind mounts sont des chemins hôte directs',
+                'stack_editor': 'Astuce : Editor Portainer valide YAML en temps réel et colore la syntaxe',
+                'create_stack': 'Astuce : Variables d\'environnement peuvent être définies dans l\'interface ou fichier .env',
+                'images_audit': 'Astuce : Trier par taille révèle images gourmandes. Alpine = minimal, Ubuntu = complet',
+                'pull_image': 'Astuce : Pull télécharge toutes les layers. Layers déjà présentes sont skippées (cache)',
+                'system_monitoring': 'Astuce : Dashboard système montre usage global, Stats par conteneur = détail individuel',
+                'security_audit': 'Astuce : User UID=0 = root, ports exposés = surface d\'attaque, docker.sock = accès total',
+                'debug_scenario': 'Astuce : Exit codes : 0=OK, 137=SIGKILL (OOM), 125=Docker error, 126=container error'
+            };
+            
+            const hint = hints[hintId] || "Astuce : Consultez la documentation Portainer officielle pour plus de détails !";
+            
+            // Notification style toast
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #17a2b8, #138496);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                z-index: 9999;
+                max-width: 400px;
+                font-size: 0.9em;
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            // Ajouter animation CSS
+            if (!document.querySelector('#hint-animation-style')) {
+                const style = document.createElement('style');
+                style.id = 'hint-animation-style';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            toast.innerHTML = hint;
+            document.body.appendChild(toast);
+            
+            // Auto-remove après 5 secondes
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease-out reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+
+        // Validation intelligente des exercices
+        function validateExercise(moduleNum, exerciseNum) {
+            const currentChecked = document.querySelectorAll(`#portainer .step-card:nth-child(${moduleNum}) .checkbox.checked`).length;
+            
+            if (currentChecked >= 3) {
+                const messages = {
+                    1: '✅ Module 1 validé !\n\n🎯 Compétences acquises :\n• Navigation interface Portainer\n• Compréhension architecture Docker\n• Analyse dashboard système',
+                    2: '✅ Module 2 validé !\n\n🎯 Compétences acquises :\n• Inspection conteneurs avancée\n• Monitoring temps réel\n• Analyse métriques performance',
+                    3: '✅ Module 3 validé !\n\n🎯 Compétences acquises :\n• Analyse logs multi-services\n• Debug applications web/Java\n• Corrélation événements',
+                    4: '✅ Module 4 validé !\n\n🎯 Compétences acquises :\n• Architecture réseau Docker\n• Création réseaux custom\n• Tests connectivité/isolation',
+                    5: '✅ Module 5 validé !\n\n🎯 Compétences acquises :\n• Gestion volumes Docker\n• Persistance données\n• Partage entre conteneurs',
+                    6: '✅ Module 6 validé !\n\n🎯 Compétences acquises :\n• Orchestration Docker Compose\n• Gestion stacks Portainer\n• Déploiements multi-services',
+                    7: '✅ Module 7 validé !\n\n🎯 Compétences acquises :\n• Gestion images Docker\n• Build et optimisation\n• Registry et versioning',
+                    8: '✅ Module 8 validé !\n\n🎯 Compétences acquises :\n• Monitoring production\n• Resource limits\n• Performance tuning',
+                    9: '✅ Module 9 validé !\n\n🎯 Compétences acquises :\n• Security audit Docker\n• Hardening conteneurs\n• Bonnes pratiques sécurité',
+                    10: '✅ Module 10 validé !\n\n🏆 FORMATION COMPLÈTE !\n• Troubleshooting expert\n• Méthodologie debug\n• DevOps Docker ready'
+                };
+                
+                alert(messages[moduleNum] || `✅ Module ${moduleNum} validé avec succès !`);
+                
+                // Animation de succès
+                const moduleCard = document.querySelector(`#portainer .step-card:nth-child(${moduleNum})`);
+                moduleCard.style.border = '3px solid #28a745';
+                moduleCard.style.boxShadow = '0 0 20px rgba(40,167,69,0.5)';
+                setTimeout(() => {
+                    moduleCard.style.border = '';
+                    moduleCard.style.boxShadow = '';
+                }, 3000);
+                
+                return true;
+            } else {
+                alert(`⚠️ Module ${moduleNum} incomplet\n\nComplétez au moins 3 activités pratiques avant validation !`);
+                return false;
+            }
+        }
+
+        // Fonction pour les checkboxes (réutilise la fonction existante si elle existe)
+        if (typeof toggleCheck === 'undefined') {
+            function toggleCheck(element) {
+                element.classList.toggle('checked');
+                updatePortainerProgress();
+            }
+        }
+
+        // Progress tracking
+        function updatePortainerProgress() {
+            const totalCheckboxes = document.querySelectorAll('#portainer .checkbox').length;
+            const checkedBoxes = document.querySelectorAll('#portainer .checkbox.checked').length;
+            const progressPercent = Math.round((checkedBoxes / totalCheckboxes) * 100);
+            
+            console.log(`🐳 Portainer Progress: ${checkedBoxes}/${totalCheckboxes} (${progressPercent}%)`);
+            
+            // Mise à jour stats dans header si besoin
+            const statNumbers = document.querySelectorAll('#portainer .stat-number');
+            if (progressPercent === 100 && statNumbers.length > 0) {
+                // Effet de célébration à 100%
+                statNumbers.forEach(stat => {
+                    stat.style.color = '#28a745';
+                    stat.style.animation = 'pulse 1s infinite';
+                });
+            }
+        }
+
+        // Initialisation module Portainer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajouter styles pour le système de corrections
+            const style = document.createElement('style');
+            style.textContent = `
+                .solutions-tab {
+                    background: linear-gradient(135deg, #28a745, #20c997);
+                    color: white;
+                    border: none;
+                    padding: 10px 16px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    margin-left: auto;
+                    transition: all 0.3s ease;
+                }
+                
+                .solutions-tab:hover {
+                    background: linear-gradient(135deg, #218838, #1ea87a);
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                }
+                
+                .hint-btn {
+                    background: linear-gradient(135deg, #17a2b8, #138496);
+                    color: white;
+                    border: none;
+                    padding: 4px 8px;
+                    border-radius: 10px;
+                    font-size: 0.8em;
+                    cursor: pointer;
+                    margin-left: 10px;
+                    transition: all 0.3s ease;
+                }
+                
+                .hint-btn:hover {
+                    background: linear-gradient(135deg, #138496, #117a8b);
+                    transform: scale(1.1);
+                }
+
+                .step-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            console.log('🚀 Portainer Master Guide loaded!');
+            console.log('📚 10 modules avec solutions live disponibles');
+            console.log('🎯 50+ exercices pratiques intégrés');
+        });
+    </script>

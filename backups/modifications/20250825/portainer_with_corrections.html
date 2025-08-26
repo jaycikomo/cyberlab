@@ -1,0 +1,336 @@
+    <!-- Portainer Tab -->
+    <div class="tab-content" id="portainer">
+        <div class="portainer-page">
+            <div class="page-header">
+                <div class="page-title">🐳 Portainer Master - Formation Docker Complète</div>
+                <p>De débutant à expert Docker - Maîtrisez l'écosystème conteneurisation</p>
+                
+                <div class="lab-stats" style="margin-top: 15px;">
+                    <div class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Modules Formation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Exercices Pratiques</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4h</div>
+                        <div class="stat-label">Formation Complète</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                
+                <!-- Module 1: Fondamentaux -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Fondamentaux Docker & Connexion Portainer</div>
+                        <button class="btn btn-warning" onclick="showSolutions(1)" style="margin-left: auto; padding: 8px 15px;">💡 Solutions</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="section-title">📚 Concepts Essentiels</div>
+                        <div class="docker-concept">
+                            <h4>🐳 Architecture CyberLab</h4>
+                            <p><strong>Portainer :</strong> Interface web pour Docker (port 9000)<br>
+                            <strong>Conteneurs :</strong> 13 services CyberLab actifs<br>
+                            <strong>Réseau :</strong> v100_cyberlab_network (172.35.0.0/24)<br>
+                            <strong>Volumes :</strong> Données persistantes (mysql_data, wazuh_data)</p>
+                        </div>
+                        
+                        <div class="section-title">🛠 Exercices Pratiques</div>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Ouvrir Portainer : <strong>http://127.0.0.1:9000</strong></span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Se connecter avec les credentials existants</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Dashboard → Noter ~13 containers, ~25 images</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-primary">🚀 Ouvrir Portainer</a>
+                            <button class="btn btn-success" onclick="validateModule(1)">✅ Valider Module</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Conteneurs -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Analyse & Monitoring Conteneurs</div>
+                        <button class="btn btn-warning" onclick="showSolutions(2)" style="margin-left: auto; padding: 8px 15px;">💡 Solutions</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="section-title">📊 Métriques Importantes</div>
+                        <p><strong>CPU/Memory :</strong> Utilisation ressources<br>
+                        <strong>Network I/O :</strong> Trafic réseau<br>
+                        <strong>Logs :</strong> Debugging applications<br>
+                        <strong>Stats :</strong> Monitoring temps réel</p>
+                        
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Containers → cyberlab_dashboard → Inspect → IP 172.35.0.20</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Stats → Observer métriques temps réel</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Logs → Analyser entrées nginx access logs</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" onclick="validateModule(2)">✅ Valider Module</button>
+                    </div>
+                </div>
+
+                <!-- Module 3: Réseaux -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Réseaux Docker - Analyse & Création</div>
+                        <button class="btn btn-warning" onclick="showSolutions(3)" style="margin-left: auto; padding: 8px 15px;">💡 Solutions</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="section-title">🌐 Architecture Réseau</div>
+                        <p><strong>CyberLab Network :</strong> 172.35.0.0/24 bridge custom<br>
+                        <strong>DNS intégré :</strong> Résolution par nom conteneur<br>
+                        <strong>Isolation :</strong> Réseaux séparés = pas de communication</p>
+                        
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Networks → v100_cyberlab_network → Inspect</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Créer réseau test : training_network (10.20.0.0/24)</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Test isolation : créer 2 nginx sur réseaux différents</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" onclick="validateModule(3)">✅ Valider Module</button>
+                    </div>
+                </div>
+
+                <!-- Module 4: Volumes -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Volumes Docker - Persistance Données</div>
+                        <button class="btn btn-warning" onclick="showSolutions(4)" style="margin-left: auto; padding: 8px 15px;">💡 Solutions</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="section-title">💾 Types Stockage</div>
+                        <p><strong>Docker Volumes :</strong> Géré par Docker (/var/lib/docker/volumes/)<br>
+                        <strong>Bind Mounts :</strong> Chemin hôte direct<br>
+                        <strong>tmpfs :</strong> Stockage temporaire RAM</p>
+                        
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Volumes → Analyser mysql_data, wazuh_data</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Créer volume test : training_data</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Test persistance : alpine + fichier dans volume</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" onclick="validateModule(4)">✅ Valider Module</button>
+                    </div>
+                </div>
+
+                <!-- Module 5: Stacks -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Stacks & Compose - Orchestration</div>
+                        <button class="btn btn-warning" onclick="showSolutions(5)" style="margin-left: auto; padding: 8px 15px;">💡 Solutions</button>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="section-title">🏗️ Multi-Conteneurs</div>
+                        <p><strong>docker-compose.yml :</strong> Définition services<br>
+                        <strong>Stacks Portainer :</strong> Interface graphique Compose<br>
+                        <strong>Dépendances :</strong> Ordre démarrage services</p>
+                        
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Stacks → formation-cybersecurite → Editor</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Analyser : 13 services, networks, volumes</span>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                <span>Créer stack test LAMP simple</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" onclick="validateModule(5)">✅ Valider Module</button>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">🏆</div>
+                        <div class="step-title">Certification Portainer Master</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 20px;">
+                            <h4 style="color: #ffd700;">🏆 CERTIFICATION PORTAINER MASTER</h4>
+                            <p><strong>Compétences maîtrisées :</strong></p>
+                            <p>✅ Interface Portainer experte<br>
+                            ✅ Conteneurs : analyse, monitoring, logs<br>
+                            ✅ Réseaux : création, isolation, tests<br>
+                            ✅ Volumes : persistance, partage<br>
+                            ✅ Stacks : orchestration docker-compose</p>
+                            <p><strong>🎯 Niveau atteint :</strong> Docker Expert / DevOps Ready</p>
+                            
+                            <div style="margin-top: 20px;">
+                                <p><strong>🚀 Prochaines étapes :</strong></p>
+                                <p>• Images & Registry management<br>
+                                • Monitoring & Performance avancé<br>
+                                • Sécurité & Hardening<br>
+                                • Troubleshooting expert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript pour corrections et interactions -->
+    <script>
+        // Système de corrections
+        function showSolutions(moduleNum) {
+            const solutions = {
+                1: `🎯 SOLUTIONS MODULE 1 - Fondamentaux:
+                
+✅ Connexion Portainer:
+- URL: http://127.0.0.1:9000
+- Login: credentials existants du lab
+- Dashboard: ~13 containers CyberLab actifs
+
+✅ Navigation:
+- Menu gauche: Dashboard, Containers, Images, Networks...
+- Stats globales: CPU/RAM système
+- Endpoint: local Docker daemon`,
+
+                2: `🎯 SOLUTIONS MODULE 2 - Conteneurs:
+
+✅ Analysis Dashboard:
+- Image: cyberlab/dashboard:latest (nginx)
+- IP: 172.35.0.20 sur v100_cyberlab_network
+- Ports: 80:8080 (conteneur:hôte)
+
+✅ Monitoring:
+- Stats temps réel: CPU %, Memory usage
+- Logs: format nginx Combined Log Format
+- Network I/O: trafic entrant/sortant`,
+
+                3: `🎯 SOLUTIONS MODULE 3 - Réseaux:
+
+✅ CyberLab Network:
+- Nom: v100_cyberlab_network
+- Subnet: 172.35.0.0/24 (254 IPs)
+- Type: bridge custom avec DNS
+
+✅ Test Network:
+- Nom: training_network
+- Subnet: 10.20.0.0/24
+- Isolation: pas de comm entre réseaux`,
+
+                4: `🎯 SOLUTIONS MODULE 4 - Volumes:
+
+✅ Volumes existants:
+- mysql_data: base MySQL persistante
+- wazuh_data: données SIEM
+- Location: /var/lib/docker/volumes/
+
+✅ Test Volume:
+- Nom: training_data
+- Persistance: survit suppression conteneur
+- Partage: montage multiple conteneurs`,
+
+                5: `🎯 SOLUTIONS MODULE 5 - Stacks:
+
+✅ Stack CyberLab:
+- Nom: formation-cybersecurite
+- Services: 13 définis (dashboard, webgoat...)
+- Networks: v100_cyberlab_network
+- Volumes: mysql_data, wazuh_data
+
+✅ Gestion:
+- Editor: modification YAML temps réel
+- Deploy: création tous services
+- Update: rolling update sans downtime`
+            };
+            
+            const solution = solutions[moduleNum] || "Solutions disponibles pour modules 1-5";
+            
+            // Popup personnalisée
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 10000;
+                display: flex; align-items: center; justify-content: center; padding: 20px;
+            `;
+            
+            popup.innerHTML = `
+                <div style="background: white; border-radius: 15px; padding: 30px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+                    <div style="background: linear-gradient(135deg, #ffc107, #ff8c00); color: white; padding: 15px; margin: -30px -30px 20px -30px; border-radius: 15px 15px 0 0; font-weight: bold;">
+                        💡 Solutions Module ${moduleNum}
+                    </div>
+                    <pre style="white-space: pre-wrap; line-height: 1.6; font-family: 'Segoe UI', sans-serif; color: #333; margin: 0; font-size: 0.9em;">${solution}</pre>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button onclick="this.closest('div').parentElement.remove()" style="background: #007bff; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer;">✅ Fermer</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+        }
+        
+        // Validation modules
+        function validateModule(moduleNum) {
+            const checked = document.querySelectorAll(`#portainer .step-card:nth-child(${moduleNum}) .checkbox.checked`).length;
+            if (checked >= 2) {
+                alert(`🎉 Module ${moduleNum} validé avec succès !\n\n✅ Prochaine étape débloquée`);
+            } else {
+                alert(`⚠️ Complétez au moins 2 exercices du module ${moduleNum}`);
+            }
+        }
+        
+        // Checkboxes
+        if (typeof toggleCheck === 'undefined') {
+            function toggleCheck(element) {
+                element.classList.toggle('checked');
+            }
+        }
+    </script>

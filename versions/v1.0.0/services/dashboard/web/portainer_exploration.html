@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐳 Portainer Master - Formation Docker Professionnelle</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0,255,136,0.2);
+            border: 2px solid rgba(0,255,136,0.5);
+            color: #00ff88;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            background: rgba(0,255,136,0.4);
+            transform: scale(1.05);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,100,255,0.1));
+            border-radius: 20px;
+            margin: 80px 0 40px;
+            border: 2px solid rgba(0,255,136,0.2);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #00ff88;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0,255,136,0.6);
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            color: #cccccc;
+            margin-bottom: 10px;
+        }
+        
+        .objectives {
+            background: rgba(0,100,255,0.1);
+            border: 2px solid rgba(0,100,255,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .objectives h2 {
+            color: #0064ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .objective-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0064ff;
+        }
+        
+        .objective-item h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .video-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        .resources-section {
+            background: linear-gradient(135deg, rgba(255,165,0,0.1), rgba(255,69,0,0.1));
+            border: 2px solid rgba(255,165,0,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .resource-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid rgba(255,165,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            border-color: rgba(255,165,0,0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,165,0,0.2);
+        }
+        
+        .resource-card h3 {
+            color: #ffa500;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffa500, #ff8c00);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 10px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background: linear-gradient(45deg, #ff8c00, #ff7700);
+            transform: scale(1.05);
+        }
+        
+        .modules-container {
+            display: grid;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .module {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(0,255,136,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .module:hover {
+            border-color: rgba(0,255,136,0.5);
+            box-shadow: 0 15px 40px rgba(0,255,136,0.2);
+        }
+        
+        .module-header {
+            background: rgba(0,255,136,0.15);
+            padding: 25px;
+            border-bottom: 2px solid rgba(0,255,136,0.2);
+        }
+        
+        .module-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        
+        .module-title {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px;
+        }
+        
+        .module-title h2 {
+            color: #00ff88;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .module-title p {
+            color: #cccccc;
+            font-size: 1.1em;
+        }
+        
+        .module-content {
+            padding: 30px;
+        }
+        
+        .theory-practice {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .theory, .practice {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .theory {
+            border-left: 4px solid #0064ff;
+        }
+        
+        .practice {
+            border-left: 4px solid #00ff88;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .theory .section-title {
+            color: #0064ff;
+        }
+        
+        .practice .section-title {
+            color: #00ff88;
+        }
+        
+        .exercise-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .exercise-list li {
+            background: rgba(255,255,255,0.05);
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00ff88;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .exercise-list li:hover {
+            background: rgba(0,255,136,0.1);
+            transform: translateX(10px);
+        }
+        
+        .exercise-list li::before {
+            content: "🎯";
+            margin-right: 10px;
+        }
+        
+        .commands-box {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #333;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .commands-box .command {
+            color: #00ff88;
+            margin: 5px 0;
+        }
+        
+        .commands-box .comment {
+            color: #888;
+            font-style: italic;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 5px 10px 5px 0;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #0064ff, #0052cc);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #0052cc, #003d99);
+            transform: scale(1.05);
+        }
+        
+        .btn-success {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(45deg, #00cc6a, #009954);
+            transform: scale(1.05);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(45deg, #ffa500, #ff8c00);
+            color: #000;
+        }
+        
+        .btn-warning:hover {
+            background: linear-gradient(45deg, #ff8c00, #ff7700);
+            transform: scale(1.05);
+        }
+        
+        .tips-box {
+            background: linear-gradient(135deg, rgba(255,255,0,0.1), rgba(255,215,0,0.1));
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .tips-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .theory-practice {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .module-number {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 1.2em;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="exploration_guide.html" class="back-btn">← Retour au Lab</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🐳 Portainer Master</h1>
+            <p>Formation Professionnelle Docker & Orchestration de Conteneurs</p>
+            <p><strong>Durée estimée :</strong> 4-6 heures • <strong>Niveau :</strong> Débutant à Intermédiaire</p>
+        </div>
+        
+        <div class="objectives">
+            <h2>🎯 Objectifs de Formation</h2>
+            <p>À la fin de cette formation, vous maîtriserez Portainer et Docker pour administrer efficacement des infrastructures de conteneurs en environnement professionnel.</p>
+            
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <h3>🔧 Maîtrise Technique</h3>
+                    <p>Interface Portainer, gestion des conteneurs, réseaux Docker, volumes persistants et orchestration multi-services.</p>
+                </div>
+                <div class="objective-item">
+                    <h3>🛡️ Sécurité & Monitoring</h3>
+                    <p>Bonnes pratiques sécurité, monitoring des ressources, gestion des logs et maintenance préventive.</p>
+                </div>
+                <div class="objective-item">
+                    <h3>🚀 Déploiement Production</h3>
+                    <p>Stacks Docker Compose, CI/CD, scaling automatique et gestion d'environnements multi-niveaux.</p>
+                </div>
+                <div class="objective-item">
+                    <h3>📊 Analyse & Optimisation</h3>
+                    <p>Performance tuning, troubleshooting avancé et optimisation des ressources systèmes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-section">
+            <h2 style="color: #00ff88; margin-bottom: 20px;">📺 Introduction Vidéo - Portainer en Français</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/8q9k1qzXRk4" title="Formation Portainer en Français" allowfullscreen></iframe>
+            </div>
+            <p style="color: #cccccc;">Introduction complète à Portainer par Cocadmin - Concepts fondamentaux et première prise en main</p>
+        </div>
+        
+        <div class="resources-section">
+            <h2 style="color: #ffa500; margin-bottom: 20px;">📚 Ressources de Formation Complémentaires GRATUITES</h2>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🎓 OpenClassrooms</h3>
+                    <p>Parcours Docker et DevOps certifiants avec projets pratiques et mentorat professionnel.</p>
+                    <a href="https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker" class="resource-link" target="_blank">Docker Fundamentals</a>
+                    <a href="https://openclassrooms.com/fr/courses/1750566-optimisez-la-securite-informatique-grace-au-monitoring/7145268-decouvrez-la-stack-elk" class="resource-link" target="_blank">Stack ELK</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>🐳 Documentation Officielle</h3>
+                    <p>Références techniques complètes Docker et Portainer avec exemples pratiques et best practices.</p>
+                    <a href="https://docs.docker.com/get-started/" class="resource-link" target="_blank">Docker Docs</a>
+                    <a href="https://docs.portainer.io/" class="resource-link" target="_blank">Portainer Docs</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>💻 Cours Numériques Gratuits</h3>
+                    <p>Tutoriels gratuits recommandés par la communauté développeurs française (Developpez.com).</p>
+                    <a href="https://virtualisation.developpez.com/cours/" class="resource-link" target="_blank">Tutoriel Xataz</a>
+                    <a href="https://www.freecodecamp.org/news/docker-simplified-96639a35ff36/" class="resource-link" target="_blank">FreeCodeCamp Docker</a>
+                    <a href="https://blog.alphorm.com/guides/tutoriel-docker" class="resource-link" target="_blank">Guide Complet Docker</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🔧 Installation du Service</h3>
+                    <p>Guides d'installation étape par étape Docker + Portainer selon les avis de la communauté française.</p>
+                    <a href="https://journaldunadminlinux.fr/tutoriel-gerez-vos-container-docker-avec-portainer/" class="resource-link" target="_blank">Journal Admin Linux</a>
+                    <a href="https://belginux.com/installer-portainer-avec-docker/" class="resource-link" target="_blank">Belginux 2025</a>
+                    <a href="https://geekeries.org/2020/04/docker-et-portainer-part-1-les-containeurs-pour-les-debutants/" class="resource-link" target="_blank">G33Keries</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎬 Formations Vidéo Gratuites</h3>
+                    <p>Chaînes YouTube spécialisées DevOps et conteneurisation avec tutoriels en français.</p>
+                    <a href="https://www.youtube.com/@EazyTraining" class="resource-link" target="_blank">EazyTraining</a>
+                    <a href="https://www.youtube.com/@cocadmin" class="resource-link" target="_blank">Cocadmin</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>⚡ Pratique Interactive</h3>
+                    <p>Environnements d'apprentissage interactifs pour pratiquer Docker sans installation.</p>
+                    <a href="https://labs.play-with-docker.com/" class="resource-link" target="_blank">Play with Docker</a>
+                    <a href="https://killercoda.com/playgrounds/scenario/docker" class="resource-link" target="_blank">Killercoda Labs</a>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,100,255,0.15)); border: 2px solid rgba(0,255,136,0.3); border-radius: 15px; padding: 25px; margin-top: 25px;">
+                <h3 style="color: #00ff88; margin-bottom: 15px; text-align: center;">🏆 Cours Complets Recommandés par la Communauté</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 2px solid rgba(0,255,136,0.2);">
+                        <h4 style="color: #00ff88; margin-bottom: 10px;">📚 EazyTraining - Parcours DevOps Complet</h4>
+                        <p style="color: #cccccc; margin-bottom: 15px;"><strong>⭐ 4/5 étoiles</strong> - Plus de 50 000 étudiants formés</p>
+                        <p style="color: #cccccc; margin-bottom: 15px;">Formation pratique complète Docker + Kubernetes + CI/CD avec projets réels. Bootcamp intensif 3 mois avec suivi personnalisé.</p>
+                        <p style="color: #ffa500; font-size: 0.9em; margin-bottom: 15px;"><strong>Recommandé par :</strong> Communauté DevOps française, 78 avis vérifiés</p>
+                        <a href="https://eazytraining.fr/parcours-devops/" style="display: inline-block; background: linear-gradient(45deg, #00ff88, #00cc6a); color: #000; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;" target="_blank">Parcours Gratuit</a>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 2px solid rgba(0,255,136,0.2);">
+                        <h4 style="color: #00ff88; margin-bottom: 10px;">🐳 Cocadmin - Docker Le Couteau Suisse</h4>
+                        <p style="color: #cccccc; margin-bottom: 15px;"><strong>⭐ Très populaire</strong> - Mentionné dans les podcasts DevOps</p>
+                        <p style="color: #cccccc; margin-bottom: 15px;">Formation Docker complète par Thomas, expert reconnu. Approche pédagogique claire avec mentorat et support communautaire.</p>
+                        <p style="color: #ffa500; font-size: 0.9em; margin-bottom: 15px;"><strong>Recommandé par :</strong> Radio DevOps, Compagnons du DevOps</p>
+                        <a href="https://www.youtube.com/@cocadmin" style="display: inline-block; background: linear-gradient(45deg, #00ff88, #00cc6a); color: #000; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;" target="_blank">Chaîne YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modules-container">
+            <!-- Module 1: Découverte et Connexion -->
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">1</span>
+                    <div class="module-title">
+                        <h2>Découverte & Première Connexion</h2>
+                        <p>Interface Portainer, navigation et concepts Docker fondamentaux</p>
+                    </div>
+                </div>
+                <div class="module-content">
+                    <div class="theory-practice">
+                        <div class="theory">
+                            <div class="section-title">📚 Concepts Théoriques</div>
+                            <ul>
+                                <li><strong>Architecture Docker :</strong> Images, conteneurs, registres</li>
+                                <li><strong>Portainer CE vs BE :</strong> Fonctionnalités et différences</li>
+                                <li><strong>Interface utilisateur :</strong> Dashboard, menu principal, raccourcis</li>
+                                <li><strong>Environnements :</strong> Local, Remote, Swarm, Kubernetes</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <div class="section-title">🛠️ Exercices Pratiques</div>
+                            <ul class="exercise-list">
+                                <li>Première connexion et création du compte admin</li>
+                                <li>Tour d'horizon du dashboard principal</li>
+                                <li>Exploration des environnements disponibles</li>
+                                <li>Configuration des préférences utilisateur</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="commands-box">
+                        <div class="comment"># Vérification de l'installation Portainer</div>
+                        <div class="command">curl -I http://localhost:9000</div>
+                        <div class="command">docker ps | grep portainer</div>
+                        <div class="comment"># Test de connectivité réseau</div>
+                        <div class="command">docker network ls | grep portainer</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <a href="http://localhost:9000" class="btn btn-primary" target="_blank">🚀 Ouvrir Portainer</a>
+                        <button class="btn btn-success" onclick="completeModule(1)">✅ Marquer Terminé</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Module 2: Gestion des Conteneurs -->
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">2</span>
+                    <div class="module-title">
+                        <h2>Gestion Avancée des Conteneurs</h2>
+                        <p>Création, monitoring, logs et cycle de vie des conteneurs</p>
+                    </div>
+                </div>
+                <div class="module-content">
+                    <div class="theory-practice">
+                        <div class="theory">
+                            <div class="section-title">📚 Approfondissement</div>
+                            <ul>
+                                <li><strong>États des conteneurs :</strong> Running, Stopped, Paused, Restarting</li>
+                                <li><strong>Monitoring temps réel :</strong> CPU, RAM, réseau, I/O disque</li>
+                                <li><strong>Gestion des logs :</strong> Rotation, drivers, export</li>
+                                <li><strong>Variables d'environnement :</strong> Configuration dynamique</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <div class="section-title">🛠️ Ateliers Hands-On</div>
+                            <ul class="exercise-list">
+                                <li>Déployer un conteneur Nginx avec configuration custom</li>
+                                <li>Analyser les métriques de performance en temps réel</li>
+                                <li>Configurer la rotation automatique des logs</li>
+                                <li>Mise à jour rolling sans interruption de service</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tips-box">
+                        <h4>💡 Pro Tips</h4>
+                        <p><strong>Monitoring continu :</strong> Configurez des alertes sur l'utilisation CPU > 80% et RAM > 90% pour anticiper les problèmes de performance.</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <button class="btn btn-warning" onclick="openContainerLab()">🧪 Lab Interactif</button>
+                        <button class="btn btn-success" onclick="completeModule(2)">✅ Valider Module</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Module 3: Réseaux Docker -->
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">3</span>
+                    <div class="module-title">
+                        <h2>Réseaux Docker & Connectivité</h2>
+                        <p>Bridge, overlay, macvlan et communication inter-conteneurs</p>
+                    </div>
+                </div>
+                <div class="module-content">
+                    <div class="theory-practice">
+                        <div class="theory">
+                            <div class="section-title">📚 Réseaux Avancés</div>
+                            <ul>
+                                <li><strong>Types de réseaux :</strong> Bridge, Host, Overlay, Macvlan</li>
+                                <li><strong>Isolation réseau :</strong> Sécurité et segmentation</li>
+                                <li><strong>Load balancing :</strong> Distribution de charge automatique</li>
+                                <li><strong>Service discovery :</strong> DNS intégré et résolution de noms</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <div class="section-title">🛠️ Architecture Réseau</div>
+                            <ul class="exercise-list">
+                                <li>Créer un réseau custom pour le lab CyberSec</li>
+                                <li>Configurer l'isolation entre environnements</li>
+                                <li>Tester la communication inter-services</li>
+                                <li>Implémenter un reverse proxy avec Traefik</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="commands-box">
+                        <div class="comment"># Analyse du réseau CyberLab existant</div>
+                        <div class="command">docker network inspect cyberlab_network</div>
+                        <div class="command">docker network ls | grep cyberlab</div>
+                        <div class="comment"># Test de connectivité entre services</div>
+                        <div class="command">docker exec -it [container] ping [target_service]</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="networkDiagnostic()">🔍 Diagnostic Réseau</button>
+                        <button class="btn btn-success" onclick="completeModule(3)">✅ Module Validé</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Module 4: Volumes et Persistance -->
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">4</span>
+                    <div class="module-title">
+                        <h2>Volumes Docker & Persistance des Données</h2>
+                        <p>Stockage permanent, backup, migration et bonnes pratiques</p>
+                    </div>
+                </div>
+                <div class="module-content">
+                    <div class="theory-practice">
+                        <div class="theory">
+                            <div class="section-title">📚 Gestion du Stockage</div>
+                            <ul>
+                                <li><strong>Types de volumes :</strong> Named volumes, bind mounts, tmpfs</li>
+                                <li><strong>Drivers de stockage :</strong> Local, NFS, CIFS, cloud</li>
+                                <li><strong>Stratégies de backup :</strong> Automatisation et versioning</li>
+                                <li><strong>Performance :</strong> SSD vs HDD, optimisations I/O</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <div class="section-title">🛠️ Persistance de Données</div>
+                            <ul class="exercise-list">
+                                <li>Configurer des volumes persistants pour les bases de données</li>
+                                <li>Mettre en place une stratégie de backup automatisée</li>
+                                <li>Migrer des données entre environnements</li>
+                                <li>Optimiser les performances de stockage</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tips-box">
+                        <h4>⚠️ Attention Production</h4>
+                        <p><strong>Jamais de données critiques sans backup !</strong> Planifiez des snapshots réguliers et testez vos procédures de restauration.</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <button class="btn btn-warning" onclick="backupLab()">💾 Backup Lab</button>
+                        <button class="btn btn-success" onclick="completeModule(4)">✅ Terminé</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Module 5: Stacks et Orchestration -->
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">5</span>
+                    <div class="module-title">
+                        <h2>Stacks Docker Compose & Orchestration</h2>
+                        <p>Multi-conteneurs, scaling, load balancing et haute disponibilité</p>
+                    </div>
+                </div>
+                <div class="module-content">
+                    <div class="theory-practice">
+                        <div class="theory">
+                            <div class="section-title">📚 Orchestration Avancée</div>
+                            <ul>
+                                <li><strong>Docker Compose :</strong> YAML, services, dependencies</li>
+                                <li><strong>Docker Swarm :</strong> Clustering et haute disponibilité</li>
+                                <li><strong>Scaling automatique :</strong> Replicas et load balancing</li>
+                                <li><strong>Rolling updates :</strong> Déploiements sans interruption</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <div class="section-title">🛠️ Orchestration Pratique</div>
+                            <ul class="exercise-list">
+                                <li>Créer une stack complète avec base de données</li>
+                                <li>Configurer le scaling automatique</li>
+                                <li>Implémenter un déploiement blue-green</li>
+                                <li>Monitoring et alertes de production</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="commands-box">
+                        <div class="comment"># Déploiement d'une stack complète</div>
+                        <div class="command">docker stack deploy -c docker-compose.yml cyberlab-prod</div>
+                        <div class="command">docker service ls</div>
+                        <div class="comment"># Scaling des services</div>
+                        <div class="command">docker service scale cyberlab-prod_web=3</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="deployStack()">🚀 Déployer Stack</button>
+                        <button class="btn btn-success" onclick="completeModule(5)">✅ Formation Terminée</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: rgba(0,255,136,0.1); border-radius: 10px; padding: 20px; margin-top: 25px; border: 2px solid rgba(0,255,136,0.2);">
+            <h3 style="color: #00ff88; margin-bottom: 15px;">📊 Progression de la Formation</h3>
+            <div style="background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; margin: 15px 0;">
+                <div id="progressBar" style="background: linear-gradient(45deg, #00ff88, #00cc6a); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
+            </div>
+            <p id="progressText">0 / 5 modules terminés</p>
+            <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span id="badge1" style="padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 15px; font-size: 0.9em;">Module 1</span>
+                <span id="badge2" style="padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 15px; font-size: 0.9em;">Module 2</span>
+                <span id="badge3" style="padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 15px; font-size: 0.9em;">Module 3</span>
+                <span id="badge4" style="padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 15px; font-size: 0.9em;">Module 4</span>
+                <span id="badge5" style="padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 15px; font-size: 0.9em;">Module 5</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let completedModules = JSON.parse(localStorage.getItem('portainerModules')) || [];
+        
+        function updateProgress() {
+            const progress = (completedModules.length / 5) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${completedModules.length} / 5 modules terminés`;
+            
+            completedModules.forEach(moduleId => {
+                const badge = document.getElementById(`badge${moduleId}`);
+                if (badge) {
+                    badge.style.background = 'linear-gradient(45deg, #00ff88, #00cc6a)';
+                    badge.style.color = '#000';
+                }
+            });
+            
+            if (completedModules.length === 5) {
+                setTimeout(() => {
+                    alert('🎉 Félicitations ! Vous avez terminé la formation Portainer Master !');
+                }, 500);
+            }
+        }
+        
+        function completeModule(moduleId) {
+            if (!completedModules.includes(moduleId)) {
+                completedModules.push(moduleId);
+                localStorage.setItem('portainerModules', JSON.stringify(completedModules));
+                updateProgress();
+                
+                const moduleNames = {
+                    1: "Découverte & Connexion",
+                    2: "Gestion des Conteneurs", 
+                    3: "Réseaux Docker",
+                    4: "Volumes & Persistance",
+                    5: "Stacks & Orchestration"
+                };
+                
+                alert(`✅ Module ${moduleId} - ${moduleNames[moduleId]} terminé avec succès !`);
+            }
+        }
+        
+        function openContainerLab() {
+            window.open('http://localhost:9000/#/docker/containers', '_blank');
+        }
+        
+        function networkDiagnostic() {
+            window.open('http://localhost:9000/#/docker/networks', '_blank');
+        }
+        
+        function backupLab() {
+            alert('🔧 Fonctionnalité de backup en cours de développement...');
+        }
+        
+        function deployStack() {
+            window.open('http://localhost:9000/#/docker/stacks', '_blank');
+        }
+        
+        // Initialiser la progression au chargement
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+    <!-- Portainer Tab -->
+    <div class="tab-content" id="portainer">
+        <div class="portainer-page">
+            <div class="page-header">
+                <div class="page-title">🐳 Portainer - Maîtrise Docker</div>
+                <p>Interface graphique pour comprendre et administrer l'infrastructure de conteneurs</p>
+            </div>
+
+            <!-- Vidéo de présentation -->
+            <div style="background: rgba(0,123,255,0.1); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: #007bff; margin-bottom: 15px;">📺 Présentation Portainer</h3>
+                <div style="background: #000; padding: 40px; border-radius: 10px; text-align: center; color: #666;">
+                    <div style="font-size: 3em; margin-bottom: 10px;">▶️</div>
+                    <p><strong>Vidéo :</strong> "Portainer - L'interface qui révolutionne Docker"</p>
+                    <p style="font-size: 0.9em;">Durée : 12min | Niveau : Débutant</p>
+                    <a href="https://www.youtube.com/watch?v=8q9k1qzXRk4" target="_blank" class="btn btn-primary">🎬 Voir la Vidéo</a>
+                </div>
+            </div>
+
+            <!-- Formation complémentaire -->
+            <div style="background: rgba(40, 167, 69, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: #28a745; margin-bottom: 15px;">🎓 Formation Complémentaire Recommandée</h3>
+                <p><strong>Pour approfondir vos connaissances Docker :</strong></p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+                    <a href="https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker" target="_blank" class="btn btn-success">
+                        📚 OpenClassrooms - Docker
+                    </a>
+                    <a href="https://www.udemy.com/course/docker-kubernetes-formation-complete/" target="_blank" class="btn btn-warning">
+                        🎯 Udemy - Formation Complète
+                    </a>
+                    <a href="https://docs.portainer.io/" target="_blank" class="btn btn-info">
+                        📖 Documentation Portainer
+                    </a>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9em;"><em>💡 Ces formations vous donneront les bases théoriques, puis revenez pratiquer ici !</em></p>
+            </div>
+
+            <div class="learning-path">
+                
+                <!-- Module 1: Interface Portainer -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Première Connexion & Interface</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Théorie Docker</div>
+                            <div class="docker-concept">
+                                <h4>🛠 Pourquoi Portainer ?</h4>
+                                <p>Portainer transforme les commandes Docker complexes en interface graphique intuitive, essentielle pour administrer un laboratoire multi-services.</p>
+                            </div>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🛠 Connexion Guidée</div>
+                            <ul class="objectives-list">
+                                <li>Maîtriser l'interface Portainer</li>
+                                <li>Comprendre l'architecture CyberLab</li>
+                                <li>Naviguer dans les sections principales</li>
+                                <li>Observer les métriques système</li>
+                            </ul>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 1.1: Connexion</div>
+                                
+                                <div style="background: #1e1e1e; color: #00ff88; padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                                    <div style="color: #ccc; margin-bottom: 10px;">Test de connectivité Portainer</div>
+                                    <div class="command">$ curl -I http://127.0.0.1:9000</div>
+                                    <div class="output">HTTP/1.1 200 OK
+Server: Portainer
+✅ Portainer accessible</div>
+                                </div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Ouvrir Portainer : http://127.0.0.1:9000</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Se connecter avec credentials existants</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard → Noter ~13 containers actifs</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Menu gauche → Explorer les sections</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-primary">🚀 Ouvrir Portainer</a>
+                                    <button class="btn btn-warning" onclick="showPortainerSolution(1)">💡 Solution</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Analyse Conteneurs -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Analyse des Conteneurs CyberLab</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📊 États & Métriques</div>
+                            <p>Dans Portainer → <strong>Containers</strong>, identifiez tous les services CyberLab :</p>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 2.1: Inventaire Services</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🌐 cyberlab_dashboard (port 8080)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🎯 cyberlab_webgoat (port 8082)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🛡️ cyberlab_dvwa (port 8081)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🍎 cyberlab_juice_shop (port 8083)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🐳 cyberlab_portainer (port 9000)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>🐧 cyberlab_kali (environnement)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer CPU/Memory usage de chaque service</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-warning" onclick="showPortainerSolution(2)">💡 Solution</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Réseaux -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Architecture Réseau</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">🌐 Réseau CyberLab</div>
+                            <p>Dans Portainer → <strong>Networks</strong> → <strong>v100_cyberlab_network</strong> :</p>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 3.1: Plan d'Adressage</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Subnet : 172.35.0.0/24</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Gateway : 172.35.0.1</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Portainer IP : 172.35.0.2</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard IP : 172.35.0.20</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Applications : 172.35.0.80-83</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Kali : 172.35.0.100</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-warning" onclick="showPortainerSolution(3)">💡 Solution</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: Logs -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Analyse des Logs</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📋 Types de Logs</div>
+                            <p>Chaque conteneur génère des logs accessibles via <code>docker logs</code> ou l'interface Portainer.</p>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 4.1: Analyse Logs Multi-Services</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard logs : format nginx access</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>WebGoat logs : démarrage Java Spring</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Générer trafic sur applications</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer nouvelles entrées temps réel</span>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border: 2px solid #ffd700; border-radius: 15px; padding: 15px; margin: 15px 0;">
+                                    <p><strong>💡 Pro Tip :</strong> Redémarrez un conteneur via Portainer et observez les logs de démarrage. Puis vérifiez que le service redevient accessible.</p>
+                                </div>
+                                
+                                <button class="btn btn-warning" onclick="showPortainerSolution(4)">💡 Solution</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5: Stacks -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Stacks & Docker Compose</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">🏗️ Orchestration</div>
+                            <p>Le CyberLab utilise Docker Compose pour orchestrer tous les services. Dans Portainer → <strong>Stacks</strong> :</p>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 5.1: Stack CyberLab</div>
+                                
+                                <div class="checklist">
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Stack : formation-cybersecurite</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Services : 13 définis</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Networks : v100_cyberlab_network</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Volumes : mysql_data, wazuh_data</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Variables d'environnement centralisées</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-warning" onclick="showPortainerSolution(5)">💡 Solution</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript pour solutions -->
+    <script>
+        function showPortainerSolution(moduleNum) {
+            const solutions = {
+                1: `🎯 SOLUTION MODULE 1:
+                
+✅ Connexion Portainer:
+- URL: http://127.0.0.1:9000
+- Login: credentials existants
+- Dashboard: ~13 containers actifs
+- Sections: Dashboard, Containers, Images, Networks, Volumes, Stacks, Events, Settings`,
+
+                2: `🎯 SOLUTION MODULE 2:
+                
+✅ Services CyberLab identifiés:
+- dashboard (nginx) : interface principale
+- webgoat : plateforme d'apprentissage OWASP
+- dvwa : application vulnérable PHP
+- juice_shop : app e-commerce vulnérable
+- portainer : interface Docker
+- kali : environnement pentesting`,
+
+                3: `🎯 SOLUTION MODULE 3:
+                
+✅ Architecture réseau:
+- Réseau: v100_cyberlab_network
+- Type: bridge custom
+- Subnet: 172.35.0.0/24
+- Tous les services communiquent via ce réseau privé`,
+
+                4: `🎯 SOLUTION MODULE 4:
+                
+✅ Logs analysis:
+- Dashboard: logs nginx format Combined
+- WebGoat: logs Java Spring Boot
+- Temps réel: les logs se rafraîchissent automatiquement
+- Formats: timestamp, IP source, requête, code réponse`,
+
+                5: `🎯 SOLUTION MODULE 5:
+                
+✅ Stack Docker Compose:
+- Fichier: docker-compose.yml
+- Services: définition des 13 conteneurs
+- Networks & Volumes: infrastructure partagée
+- Variables: configuration centralisée`
+            };
+            
+            alert(solutions[moduleNum] || "Solution non disponible");
+        }
+    </script>

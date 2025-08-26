@@ -1,0 +1,300 @@
+#!/bin/bash
+
+# 🧹 Script de nettoyage exploration_guide.html
+# Ne garder que les 9 modules essentiels
+
+echo "🧹 NETTOYAGE exploration_guide.html - Modules essentiels uniquement"
+echo "=================================================================="
+
+# Variables
+WEB_FILE="$HOME/cyberlab/versions/v1.0.0/services/dashboard/web/exploration_guide.html"
+TEMP_FILE="/tmp/exploration_guide_clean.html"
+
+# Vérification du fichier
+if [ ! -f "$WEB_FILE" ]; then
+    echo "❌ Erreur: Fichier $WEB_FILE non trouvé"
+    exit 1
+fi
+
+echo "📄 Fichier à nettoyer: $WEB_FILE"
+echo "📏 Taille actuelle: $(wc -c < "$WEB_FILE") bytes"
+
+# Création du nouveau fichier avec seulement les 9 modules essentiels
+cat > "$TEMP_FILE" << 'EOF'
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡 CyberLab Genesis - Guide d'Exploration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,100,255,0.1));
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(0,255,136,0.2);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #00ff88;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0,255,136,0.5);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(0,255,136,0.2);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,255,136,0.5);
+            box-shadow: 0 10px 30px rgba(0,255,136,0.2);
+        }
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .service-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        .service-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        .service-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+        .service-status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .status-ready {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+        }
+        .status-soon {
+            background: linear-gradient(45deg, #ff6b35, #ff8e53);
+            color: #fff;
+        }
+        .service-button {
+            background: linear-gradient(45deg, #0064ff, #0052cc);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .service-button:hover {
+            background: linear-gradient(45deg, #0052cc, #003d99);
+            transform: scale(1.05);
+        }
+        .service-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡 CyberLab Genesis - Guide d'Exploration</h1>
+            <p>Laboratoire de Cybersécurité - Modules Essentiels</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Portainer -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-title">Portainer</div>
+                </div>
+                <div class="service-description">
+                    Interface graphique pour la gestion Docker. Comprenez l'architecture du lab et administrez les conteneurs.
+                </div>
+                <div>
+                    <span class="service-status status-ready">PRÊT</span>
+                    <button class="service-button" onclick="window.open('http://localhost:9000', '_blank')">Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- Wazuh SIEM -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-title">Wazuh SIEM</div>
+                </div>
+                <div class="service-description">
+                    Système de détection d'intrusions et monitoring sécurité. Analysez les logs et détectez les menaces.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- DVWA -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🎯</div>
+                    <div class="service-title">DVWA</div>
+                </div>
+                <div class="service-description">
+                    Damn Vulnerable Web Application. Application web intentionnellement vulnérable pour l'apprentissage.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- WebGoat -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🐐</div>
+                    <div class="service-title">WebGoat</div>
+                </div>
+                <div class="service-description">
+                    Plateforme d'apprentissage OWASP interactive. Leçons pratiques sur les vulnérabilités web.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- Juice Shop -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🧃</div>
+                    <div class="service-title">Juice Shop</div>
+                </div>
+                <div class="service-description">
+                    Application e-commerce moderne avec vulnérabilités réalistes. Challenges progressifs.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- Kibana -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📊</div>
+                    <div class="service-title">Kibana</div>
+                </div>
+                <div class="service-description">
+                    Visualisation et analyse des logs Elasticsearch. Dashboards et recherches avancées.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- Grafana -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📈</div>
+                    <div class="service-title">Grafana</div>
+                </div>
+                <div class="service-description">
+                    Dashboards de monitoring et métriques. Surveillance en temps réel des services.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- phpMyAdmin -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🗄️</div>
+                    <div class="service-title">phpMyAdmin</div>
+                </div>
+                <div class="service-description">
+                    Administration MySQL via interface web. Gestion des bases de données du laboratoire.
+                </div>
+                <div>
+                    <span class="service-status status-soon">BIENTÔT</span>
+                    <button class="service-button" disabled>Ouvrir</button>
+                </div>
+            </div>
+
+            <!-- Windows AD Lab -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🖥️</div>
+                    <div class="service-title">Windows AD Lab</div>
+                </div>
+                <div class="service-description">
+                    Environnement Active Directory vulnérable. Domaine Windows avec DC, clients et failles configurées pour pentest avancé.
+                </div>
+                <div>
+                    <span class="service-status status-ready">PRÊT</span>
+                    <button class="service-button" onclick="window.open('http://localhost:3389', '_blank')">Explorer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+EOF
+
+# Remplacer le fichier original
+echo "📝 Remplacement du fichier..."
+mv "$TEMP_FILE" "$WEB_FILE"
+
+echo "✅ Nettoyage terminé !"
+echo "📏 Nouvelle taille: $(wc -c < "$WEB_FILE") bytes"
+echo "🌐 Testez: http://localhost:8080/exploration_guide.html"
+
+echo ""
+echo "🎯 MODULES CONSERVÉS :"
+echo "1. Portainer (PRÊT)"
+echo "2. Wazuh SIEM (BIENTÔT)"
+echo "3. DVWA (BIENTÔT)"
+echo "4. WebGoat (BIENTÔT)"
+echo "5. Juice Shop (BIENTÔT)"
+echo "6. Kibana (BIENTÔT)"
+echo "7. Grafana (BIENTÔT)"
+echo "8. phpMyAdmin (BIENTÔT)"
+echo "9. Windows AD Lab (PRÊT)"

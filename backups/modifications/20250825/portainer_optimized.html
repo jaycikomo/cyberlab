@@ -1,0 +1,52 @@
+
+    <!-- JavaScript pour corrections et interactions -->
+    <script>
+        // Système de corrections simplifié
+        function showSolutions(moduleNum) {
+            const solutions = {
+                1: `🎯 SOLUTIONS MODULE 1:
+✅ Portainer: http://127.0.0.1:9000
+✅ Login: credentials existants du lab
+✅ Dashboard: ~13 containers, ~25 images`,
+                
+                2: `🎯 SOLUTIONS MODULE 2:
+✅ Dashboard IP: 172.35.0.20
+✅ Image: cyberlab/dashboard:latest
+✅ Stats: CPU/Memory temps réel`,
+                
+                3: `🎯 SOLUTIONS MODULE 3:
+✅ Réseau: v100_cyberlab_network
+✅ Subnet: 172.35.0.0/24
+✅ Test: training_network 10.20.0.0/24`,
+                
+                4: `🎯 SOLUTIONS MODULE 4:
+✅ Volumes: mysql_data, wazuh_data
+✅ Test: training_data volume
+✅ Persistance: survit suppression container`,
+                
+                5: `🎯 SOLUTIONS MODULE 5:
+✅ Stack: formation-cybersecurite
+✅ Services: 13 définis
+✅ YAML: services, networks, volumes`
+            };
+            
+            alert(solutions[moduleNum] || "Solutions disponibles pour modules 1-5");
+        }
+        
+        // Validation exercices
+        function validateModule(moduleNum) {
+            const checked = document.querySelectorAll(`#portainer .step-card:nth-child(${moduleNum}) .checkbox.checked`).length;
+            if (checked >= 2) {
+                alert(`✅ Module ${moduleNum} validé !`);
+            } else {
+                alert(`⚠️ Complétez les exercices du module ${moduleNum}`);
+            }
+        }
+        
+        // Checkboxes
+        if (typeof toggleCheck === 'undefined') {
+            function toggleCheck(element) {
+                element.classList.toggle('checked');
+            }
+        }
+    </script>

@@ -1,0 +1,159 @@
+    <!-- Portainer Tab -->
+    <div class="tab-content" id="portainer">
+        <div class="portainer-page">
+            <div class="page-header">
+                <div class="page-title">🐳 Portainer Master - Formation Docker Complète</div>
+                <p>De débutant à expert Docker - Maîtrisez l'écosystème conteneurisation</p>
+                
+                <!-- Vidéo de présentation -->
+                <div style="background: rgba(0,123,255,0.1); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <h3 style="color: #007bff; margin-bottom: 15px;">📺 Présentation Portainer</h3>
+                    <div style="background: #000; padding: 40px; border-radius: 10px; text-align: center; color: #666;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">▶️</div>
+                        <p><strong>Vidéo :</strong> "Portainer - L'interface qui révolutionne Docker"</p>
+                        <p style="font-size: 0.9em;">Durée : 12min | Niveau : Débutant</p>
+                        <a href="https://www.youtube.com/watch?v=8q9k1qzXRk4" target="_blank" class="btn btn-primary">🎬 Voir la Vidéo</a>
+                    </div>
+                </div>
+                
+                <div class="lab-stats" style="margin-top: 15px;">
+                    <div class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Modules Formation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">45+</div>
+                        <div class="stat-label">Exercices Pratiques</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8h</div>
+                        <div class="stat-label">Formation Complète</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                
+                <!-- Module 1: Fondamentaux Docker -->
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Fondamentaux Docker & Première Connexion</div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="theory-section theory">
+                            <div class="section-title">📚 Théorie Docker Fondamentale</div>
+                            
+                            <div class="docker-concept">
+                                <h4>🐳 Écosystème Docker</h4>
+                                <p><strong>Docker Engine :</strong> Moteur de conteneurisation<br>
+                                <strong>Docker Images :</strong> Templates statiques (comme des ISO)<br>
+                                <strong>Docker Containers :</strong> Instances en cours d'exécution<br>
+                                <strong>Docker Registry :</strong> Hub central (Docker Hub, registries privés)</p>
+                            </div>
+                            
+                            <div class="docker-concept">
+                                <h4>🏗️ Architecture Docker</h4>
+                                <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: monospace;">
+<pre style="color: #00ff88; margin: 0;">
+┌─────────────────┐    ┌──────────────────┐
+│   Portainer     │───▶│  Docker Engine   │
+│   (Interface)   │    │  (Daemon)        │
+└─────────────────┘    └──────────────────┘
+                                │
+                       ┌────────▼────────┐
+                       │   Containers    │
+                       │ ┌─────┐ ┌─────┐ │
+                       │ │App1 │ │App2 │ │
+                       │ └─────┘ └─────┘ │
+                       └─────────────────┘
+</pre>
+                                </div>
+                            </div>
+                            
+                            <ul class="objectives-list">
+                                <li>Maîtriser les concepts fondamentaux Docker</li>
+                                <li>Comprendre Portainer comme GUI pour Docker</li>
+                                <li>Identifier l'architecture CyberLab complète</li>
+                                <li>Naviguer efficacement dans l'interface</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-section practice">
+                            <div class="section-title">🛠️ Première Connexion Guidée</div>
+                            
+                            <div class="interactive-exercise">
+                                <div class="exercise-title">🎯 Exercise 1.1: Setup & Discovery</div>
+                                
+                                <div class="terminal-sim">
+                                    <div class="terminal-header">
+                                        <div class="terminal-dots">
+                                            <div class="dot red"></div>
+                                            <div class="dot yellow"></div>
+                                            <div class="dot green"></div>
+                                        </div>
+                                        Tests préliminaires Portainer
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="command">$ curl -I http://127.0.0.1:9000</div>
+                                        <div class="output">HTTP/1.1 200 OK
+Server: Portainer
+✅ Portainer accessible</div>
+                                        <div class="command">$ docker --version</div>
+                                        <div class="output">Docker version 20.10.24, build 297e128</div>
+                                        <div class="command">$ docker system info | grep -E "Containers|Images"</div>
+                                        <div class="output">Containers: 13
+Images: 25</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="checklist">
+                                    <h4>✅ Phase 1: Première connexion</h4>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Ouvrir Portainer : <strong>http://127.0.0.1:9000</strong></span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Créer compte admin (admin/CyberLab2024! recommandé)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Sélectionner "Get Started" → "Docker" → "Connect"</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Observer le dashboard : containers actifs (~13), images (~25)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="checklist">
+                                    <h4>✅ Phase 2: Interface Discovery</h4>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Menu gauche : identifier les 8 sections principales</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Dashboard : noter CPU/RAM usage du Docker Engine</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Quick actions : tester "Add container" (ne pas créer)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <div class="checkbox" onclick="toggleCheck(this)"></div>
+                                        <span>Endpoint info : vérifier Docker API version</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <a href="http://127.0.0.1:9000" target="_blank" class="btn btn-primary">🚀 Ouvrir Portainer</a>
+                                    <button class="btn btn-warning" onclick="showPortainerTips()">💡 Astuces Interface</button>
+                                    <button class="btn btn-success" onclick="validateModule(1)">✅ Valider Module 1</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

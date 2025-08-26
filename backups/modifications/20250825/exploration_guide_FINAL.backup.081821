@@ -493,7 +493,7 @@
     <div class="tabs-container">
         <div class="tabs">
             <button class="tab active" onclick="showTab('overview')">🏠 Vue d'ensemble</button>
-            <button class="tab" onclick="window.open('portainer_exploration.html', '_blank')">🐳 Portainer</button>
+            <button class="tab" onclick="window.open('portainer_guide.html', '_blank')">🐳 Portainer</button>
             <button class="tab" onclick="showTab('wazuh')">🛡️ Wazuh SIEM</button>
             <button class="tab" onclick="showTab('dvwa')">🎯 DVWA</button>
             <button class="tab" onclick="showTab('webgoat')">🐐 WebGoat</button>
@@ -515,7 +515,7 @@
             
             <div class="services-grid">
                 <!-- Portainer -->
-                <div class="service-card" onclick="window.open('portainer_exploration.html', '_blank')">
+                <div class="service-card" onclick="window.open('portainer_guide.html', '_blank')">
                     <div class="service-header">
                         <div class="service-icon">🐳</div>
                         <div class="service-title">Portainer</div>
