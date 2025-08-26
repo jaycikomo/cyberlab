@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protection Cybersécurité - CyberLab Genesis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,100,255,0.1));
+            padding: 30px;
+            text-align: center;
+            border-bottom: 2px solid rgba(0,255,136,0.2);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0,255,136,0.5);
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #cccccc;
+        }
+
+        .back-to-lab {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .back-to-lab a {
+            background: linear-gradient(45deg, #00ff41, #00cc33);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .back-to-lab a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 255, 65, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0,255,136,0.3);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .solution-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,255,136,0.2);
+            border-color: rgba(0,255,136,0.3);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .card-description {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            background: rgba(0,255,136,0.1);
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #00ff88;
+            font-size: 0.9em;
+        }
+
+        .protection-layer {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(0,255,136,0.2);
+        }
+
+        .layer-title {
+            font-size: 1.8em;
+            color: #00ff88;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .enterprise-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #cccccc;
+            margin-top: 5px;
+        }
+
+        .comparison-table {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+
+        .table-header {
+            background: rgba(0,255,136,0.2);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .table-row:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .pros, .cons {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .pros {
+            border-left: 4px solid #00ff88;
+        }
+
+        .cons {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .pros h4 {
+            color: #00ff88;
+        }
+
+        .cons h4 {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .enterprise-stats {
+                flex-direction: column;
+            }
+            
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton retour au lab -->
+    <div class="back-to-lab">
+        <a href="http://localhost:8080/exploration_guide.html">
+            🔬 Retour au Lab
+        </a>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>🛡️ Protection Cybersécurité Entreprise</h1>
+        <p>Solutions physiques et cloud pour la sécurité des systèmes d'information</p>
+        
+        <div class="enterprise-stats">
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Entreprises ciblées</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">€4.2M</div>
+                <div class="stat-label">Coût moyen cyberattaque</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">280j</div>
+                <div class="stat-label">Temps détection moyenne</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Solutions disponibles</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Solutions Réseau -->
+        <div class="section">
+            <h2 class="section-title">🌐 Protection Réseau</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">Firewalls</div>
+                    <div class="card-description">
+                        Barrière de protection entre réseaux internes et externes. Contrôle du trafic selon des règles définies.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Physiques:</strong> Palo Alto PA-Series, Fortinet FortiGate, Cisco ASA, SonicWall</li>
+                        <li><strong>Virtuels:</strong> pfSense, OPNsense, VMware NSX</li>
+                        <li><strong>Cloud:</strong> AWS WAF, Azure Firewall, GCP Cloud Armor</li>
+                        <li><strong>NGFW:</strong> Palo Alto, Check Point, Juniper SRX</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🏷️</div>
+                    <div class="card-title">VLAN & Segmentation</div>
+                    <div class="card-description">
+                        Séparation logique des réseaux pour limiter la propagation d'attaques et isoler les ressources critiques.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Switches:</strong> Cisco Catalyst, HP ProCurve, Aruba</li>
+                        <li><strong>Micro-segmentation:</strong> Illumio, Guardicore, Akamai</li>
+                        <li><strong>Software-Defined:</strong> VMware NSX, Cisco ACI</li>
+                        <li><strong>Zero Trust:</strong> Zscaler, Cloudflare Access</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-title">VPN & Accès Distant</div>
+                    <div class="card-description">
+                        Connexions sécurisées pour les accès distants et interconnexions de sites.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Site-to-Site:</strong> IPsec, MPLS, SD-WAN</li>
+                        <li><strong>Client VPN:</strong> OpenVPN, WireGuard, Cisco AnyConnect</li>
+                        <li><strong>Cloud VPN:</strong> AWS Site-to-Site, Azure VPN Gateway</li>
+                        <li><strong>ZTNA:</strong> Palo Alto Prisma, Zscaler Private Access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protection Périméter -->
+        <div class="section">
+            <h2 class="section-title">🌊 Protection Périmètre & Cloud</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-title">Cloudflare & CDN</div>
+                    <div class="card-description">
+                        Protection contre les attaques DDoS, optimisation et sécurité des applications web.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>DDoS Protection:</strong> Cloudflare, AWS Shield, Akamai</li>
+                        <li><strong>WAF:</strong> Web Application Firewall, ModSecurity</li>
+                        <li><strong>Bot Management:</strong> Détection et blocage de bots</li>
+                        <li><strong>SSL/TLS:</strong> Chiffrement bout en bout</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🕵️</div>
+                    <div class="card-title">Proxy & Filtrage Web</div>
+                    <div class="card-description">
+                        Contrôle et filtrage du trafic web sortant, protection contre les menaces web.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Proxy:</strong> BlueCoat, Zscaler, Squid</li>
+                        <li><strong>DNS Filtering:</strong> Cisco Umbrella, Quad9</li>
+                        <li><strong>URL Filtering:</strong> Forcepoint, McAfee Web Gateway</li>
+                        <li><strong>CASB:</strong> Cloud Access Security Broker</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-title">IDS/IPS & SIEM</div>
+                    <div class="card-description">
+                        Détection et prévention d'intrusions, corrélation d'événements et analyse comportementale.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>IDS/IPS:</strong> Snort, Suricata, Cisco Firepower</li>
+                        <li><strong>SIEM:</strong> Splunk, QRadar, Elastic Stack</li>
+                        <li><strong>SOAR:</strong> Phantom, Demisto, TheHive</li>
+                        <li><strong>XDR:</strong> CrowdStrike, SentinelOne, Microsoft</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protection Endpoints -->
+        <div class="section">
+            <h2 class="section-title">💻 Protection Postes & Serveurs</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">🦠</div>
+                    <div class="card-title">EDR/XDR & Antivirus</div>
+                    <div class="card-description">
+                        Protection avancée des postes de travail et serveurs contre les malwares et attaques sophistiquées.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>EDR:</strong> CrowdStrike Falcon, SentinelOne, Carbon Black</li>
+                        <li><strong>Antivirus:</strong> Kaspersky, McAfee, Trend Micro</li>
+                        <li><strong>Next-Gen AV:</strong> Cylance, Sophos Intercept X</li>
+                        <li><strong>Behavioral Analysis:</strong> Détection basée IA</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🔐</div>
+                    <div class="card-title">Chiffrement & PKI</div>
+                    <div class="card-description">
+                        Protection des données sensibles par chiffrement et gestion des certificats numériques.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>File Encryption:</strong> BitLocker, FileVault, VeraCrypt</li>
+                        <li><strong>Database:</strong> TDE, AWS KMS, Azure Key Vault</li>
+                        <li><strong>PKI:</strong> Microsoft CA, OpenSSL, HashiCorp Vault</li>
+                        <li><strong>HSM:</strong> Hardware Security Modules</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">📱</div>
+                    <div class="card-title">MDM & BYOD</div>
+                    <div class="card-description">
+                        Gestion et sécurisation des appareils mobiles et politiques BYOD.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>MDM:</strong> Microsoft Intune, VMware Workspace ONE</li>
+                        <li><strong>MAM:</strong> Mobile Application Management</li>
+                        <li><strong>EMM:</strong> Enterprise Mobility Management</li>
+                        <li><strong>Containerization:</strong> Isolation apps pro/perso</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DMZ & Architecture -->
+        <div class="section">
+            <h2 class="section-title">🏗️ DMZ & Architecture Réseau</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">🚧</div>
+                    <div class="card-title">Zone Démilitarisée (DMZ)</div>
+                    <div class="card-description">
+                        Réseau isolé exposant les services publics tout en protégeant le réseau interne.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Services DMZ:</strong> Serveurs Web, Mail, DNS publics</li>
+                        <li><strong>Triple-Homed:</strong> Firewall avec 3 interfaces réseau</li>
+                        <li><strong>Dual Firewall:</strong> Architecture à 2 firewalls</li>
+                        <li><strong>VLAN DMZ:</strong> Segmentation logique</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-title">Architecture Multi-Tiers</div>
+                    <div class="card-description">
+                        Séparation en couches (présentation, application, données) pour une sécurité renforcée.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Web Tier:</strong> Load balancers, serveurs web</li>
+                        <li><strong>App Tier:</strong> Serveurs d'applications, API</li>
+                        <li><strong>Data Tier:</strong> Bases de données, stockage</li>
+                        <li><strong>Management:</strong> Réseau d'administration séparé</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🌉</div>
+                    <div class="card-title">Network Access Control</div>
+                    <div class="card-description">
+                        Contrôle d'accès au réseau basé sur l'identité et la conformité des équipements.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>802.1X:</strong> Authentification au niveau port</li>
+                        <li><strong>MAB:</strong> MAC Address Bypass</li>
+                        <li><strong>Guest Networks:</strong> Réseaux invités isolés</li>
+                        <li><strong>Quarantine:</strong> Mise en quarantaine automatique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitoring & Surveillance -->
+        <div class="section">
+            <h2 class="section-title">📊 Monitoring & Surveillance</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Network Monitoring</div>
+                    <div class="card-description">
+                        Surveillance continue du trafic réseau et détection d'anomalies comportementales.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>SNMP:</strong> Zabbix, PRTG, SolarWinds</li>
+                        <li><strong>Flow Analysis:</strong> NetFlow, sFlow, IPFIX</li>
+                        <li><strong>Packet Capture:</strong> Wireshark, tcpdump</li>
+                        <li><strong>NPM:</strong> Network Performance Monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Security Monitoring</div>
+                    <div class="card-description">
+                        Corrélation d'événements sécurité et analyse comportementale des utilisateurs.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>SIEM:</strong> Splunk, QRadar, LogRhythm, Wazuh</li>
+                        <li><strong>UEBA:</strong> User Entity Behavior Analytics</li>
+                        <li><strong>Threat Hunting:</strong> Recherche proactive de menaces</li>
+                        <li><strong>SOC:</strong> Security Operations Center</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-title">Log Management</div>
+                    <div class="card-description">
+                        Centralisation, indexation et analyse des logs pour forensique et conformité.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Centralization:</strong> Syslog, rsyslog, Fluentd</li>
+                        <li><strong>Storage:</strong> Elasticsearch, InfluxDB</li>
+                        <li><strong>Analysis:</strong> Grafana, Kibana, Graylog</li>
+                        <li><strong>Retention:</strong> Archivage long terme</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">Real-time Analytics</div>
+                    <div class="card-description">
+                        Analyse en temps réel pour détection rapide d'incidents et réponse automatisée.
+                    </div>
+                    <ul class="tech-list">
+                        <li><strong>Stream Processing:</strong> Apache Kafka, Storm</li>
+                        <li><strong>CEP:</strong> Complex Event Processing</li>
+                        <li><strong>ML Detection:</strong> Détection par apprentissage</li>
+                        <li><strong>Alerting:</strong> Notifications intelligentes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparaison Solutions -->
+        <div class="section">
+            <h2 class="section-title">📊 Comparatif Solutions Populaires</h2>
+            
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div class="table-row">
+                        <div><strong>Solution</strong></div>
+                        <div><strong>Coût</strong></div>
+                        <div><strong>Complexité</strong></div>
+                        <div><strong>Efficacité</strong></div>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div><strong>🔥 Fortinet FortiGate</strong><br>Firewall NGFW Enterprise</div>
+                    <div>€€€</div>
+                    <div>Moyenne</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <div class="table-row">
+                    <div><strong>☁️ Cloudflare Pro</strong><br>Protection DDoS + WAF</div>
+                    <div>€€</div>
+                    <div>Faible</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <div class="table-row">
+                    <div><strong>🛡️ CrowdStrike Falcon</strong><br>EDR/XDR Enterprise</div>
+                    <div>€€€€</div>
+                    <div>Moyenne</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <div class="table-row">
+                    <div><strong>🌐 pfSense</strong><br>Firewall Open Source</div>
+                    <div>€</div>
+                    <div>Élevée</div>
+                    <div>⭐⭐⭐⭐</div>
+                </div>
+                
+                <div class="table-row">
+                    <div><strong>🔒 Zscaler ZIA</strong><br>Secure Web Gateway Cloud</div>
+                    <div>€€€</div>
+                    <div>Faible</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Architecture Defense in Depth -->
+        <div class="section">
+            <h2 class="section-title">🏰 Architecture "Defense in Depth"</h2>
+            
+            <div class="protection-layer">
+                <div class="layer-title">🌐 Couche Périmètre</div>
+                <p><strong>Firewalls physiques, WAF, DDoS protection</strong> - Première ligne de défense contre les attaques externes.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Avantages</h4>
+                        <ul>
+                            <li>Blocage massif d'attaques automatisées</li>
+                            <li>Protection contre DDoS Layer 3/4/7</li>
+                            <li>Réduction de la charge sur l'infrastructure</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>
+                            <li>Contournement possible via applications légitimes</li>
+                            <li>Inefficace contre les attaques internes</li>
+                            <li>Point de défaillance unique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protection-layer">
+                <div class="layer-title">🏢 Couche Réseau Interne</div>
+                <p><strong>Segmentation VLAN, IDS/IPS, NAC</strong> - Contrôle et surveillance du trafic interne.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Avantages</h4>
+                        <ul>
+                            <li>Limitation de la propagation latérale</li>
+                            <li>Visibilité sur le trafic interne</li>
+                            <li>Contrôle granulaire des accès</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>
+                            <li>Complexité de configuration</li>
+                            <li>Impact sur les performances</li>
+                            <li>Maintenance continue requise</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protection-layer">
+                <div class="layer-title">💻 Couche Endpoints</div>
+                <p><strong>EDR/XDR, antivirus, chiffrement</strong> - Protection directe des postes de travail et serveurs.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Avantages</h4>
+                        <ul>
+                            <li>Détection comportementale avancée</li>
+                            <li>Réponse automatisée aux incidents</li>
+                            <li>Protection même hors réseau</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>
+                            <li>Consommation de ressources</li>
+                            <li>Possible contournement par malware sophistiqué</li>
+                            <li>Gestion centralisée complexe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protection-layer">
+                <div class="layer-title">👥 Couche Utilisateurs</div>
+                <p><strong>Formation, authentification MFA, privilèges minimaux</strong> - Le facteur humain reste critique.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Avantages</h4>
+                        <ul>
+                            <li>Réduction drastique du social engineering</li>
+                            <li>Culture sécurité partagée</li>
+                            <li>ROI élevé sur formation</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>
+                            <li>Facteur humain imprévisible</li>
+                            <li>Formation continue nécessaire</li>
+                            <li>Résistance au changement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tendances 2025 -->
+        <div class="section">
+            <h2 class="section-title">🚀 Tendances 2025</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-title">IA & Machine Learning</div>
+                    <div class="card-description">
+                        Intelligence artificielle pour la détection proactive et la réponse automatisée aux menaces.
+                    </div>
+                    <ul class="tech-list">
+                        <li>Détection d'anomalies comportementales</li>
+                        <li>SOAR avec orchestration IA</li>
+                        <li>Threat Intelligence automatisée</li>
+                        <li>Prédiction d'attaques</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-title">Zero Trust Architecture</div>
+                    <div class="card-description">
+                        "Never trust, always verify" - Vérification continue de tous les accès et communications.
+                    </div>
+                    <ul class="tech-list">
+                        <li>Identity-based security</li>
+                        <li>Microsegmentation dynamique</li>
+                        <li>Conditional access policies</li>
+                        <li>Continuous authentication</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="card-icon">🌩️</div>
+                    <div class="card-title">Cloud-Native Security</div>
+                    <div class="card-description">
+                        Sécurité intégrée dès la conception pour les architectures cloud et conteneurs.
+                    </div>
+                    <ul class="tech-list">
+                        <li>Container security (Falco, Twistlock)</li>
+                        <li>Serverless protection</li>
+                        <li>Infrastructure as Code security</li>
+                        <li>DevSecOps integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 40px; background: rgba(0,0,0,0.3);">
+        <h3 style="color: #00ff88;">🎯 CyberLab Genesis - Formation Cybersécurité Pratique</h3>
+        <p>Explorez ces technologies dans un environnement de lab sécurisé !</p>
+        <a href="http://localhost:8080/exploration_guide.html" style="background: linear-gradient(45deg, #00ff41, #00cc33); color: #000; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.1em;">
+            🔬 Retourner au Laboratoire
+        </a>
+    </div>
+</body>
+</html>
