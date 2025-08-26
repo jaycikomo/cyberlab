@@ -49,6 +49,10 @@
             text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
         }
 
+        a.logo {
+            text-decoration: none;
+        }
+
         .nav {
             display: flex;
             list-style: none;
@@ -359,7 +363,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">🛡️ CYBERLAB GENESIS</div>
+                <a href="#" class="logo" onclick="window.scrollTo(0,0); return false;">🛡️ CYBERLAB GENESIS</a>
                 <nav>
                     <ul class="nav">
                         <li><a href="#about">À Propos</a></li>
@@ -395,7 +399,7 @@
                     width="100%" 
                     height="450" 
                     src="https://www.youtube.com/embed/V171QAXJVTg?start=383" 
-                    title="2 minutes pour comprendre la cybersécurité" 
+                    title="Présentation technique cybersécurité" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
@@ -404,7 +408,7 @@
             </div>
             
             <p style="color: #ccc; margin-top: 1rem; font-size: 0.9rem;">
-                <em>2 minutes pour comprendre les enjeux de la cybersécurité (RTI Officiel)</em>
+                <em>Présentation technique et professionnelle sur la cybersécurité</em>
             </p>
         </div>
     </section>
@@ -449,6 +453,32 @@
                 • La cybersécurité devient une question de gouvernance<br>
                 • Les réglementations NIS-2 et DORA transforment les exigences<br>
                 • La pénurie de talents s'accentue : c'est votre opportunité !</p>
+            </div>
+
+            <div class="grid grid-2" style="margin-top: 3rem;">
+                <div class="card">
+                    <h3>🚨 Attaques Marquantes Récentes</h3>
+                    <ul class="prereq-list">
+                        <li><strong>Incident CrowdStrike (juillet 2024)</strong> : Panne mondiale affectant 8,5M d'ordinateurs Windows</li>
+                        <li><strong>Ransomware LockBit</strong> : Groupe cybercriminel le plus actif (2022-2024)</li>
+                        <li><strong>Attaque Medibank (2022)</strong> : 9,7M de données clients compromises</li>
+                        <li><strong>Breach LastPass (2022)</strong> : Coffres-forts chiffrés volés</li>
+                        <li><strong>Ransomware contre Costa Rica</strong> : Gouvernement entier paralysé</li>
+                        <li><strong>Cyberattaques Ukraine</strong> : Guerre hybride avec composante cyber</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>📈 Évolution de la Cybercriminalité</h3>
+                    <ul class="prereq-list">
+                        <li><strong>+38% d'attaques par ransomware</strong> en 2023 vs 2022</li>
+                        <li><strong>Coût moyen d'une violation</strong> : 4,88M$ en 2024</li>
+                        <li><strong>277 jours</strong> : temps moyen pour détecter une intrusion</li>
+                        <li><strong>+75% d'attaques supply chain</strong> depuis 2021</li>
+                        <li><strong>1 entreprise sur 2</strong> visée par une cyberattaque chaque semaine</li>
+                        <li><strong>Darknet economy</strong> : 2,5Md$ de revenus annuels estimés</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
